@@ -1,0 +1,145 @@
+html, div, ul, li {
+    padding-left: 0;
+    margin-left: 0;
+    list-style-type: none;
+}
+
+.weathers-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.weather-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 45%;
+    width: calc((40rem - 100%) * 999);
+    max-width: 90%;
+}
+
+.local-weather-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.weather-details {
+}
+
+.local-weather-item .weather-details {
+    min-width: 45%;
+    width: calc((40rem - 100%) * 999);
+    max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.main-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 0;
+}
+
+.local-weather-item .main-info {
+    min-width: 45%;
+    width: calc((40rem - 100%) * 999);
+    max-width: 90%;
+    display: block;
+}
+
+.city-name {
+    font-size: 1.5rem;
+}
+
+.local-weather-item .city-name {
+    margin: 0.5rem;
+    font-size: calc(2.5rem + (10 - 2.5) * (100vw - 40rem) / (200 - 40));;
+}
+
+.weather-icon img {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.local-weather-item .weather-icon img {
+    width: calc(5rem + (20 - 5) * (100vw - 40rem) / (200 - 40));
+    height: calc(5rem + (20 - 5) * (100vw - 40rem) / (200 - 40));
+    float: left;
+    margin: 0.5rem;
+}
+
+.weather-value {
+    font-size: 1.5rem;
+}
+
+.local-weather-item .weather-value {
+    font-size: calc(4rem + (18 - 4) * (100vw - 40rem) / (200 - 40));
+    float: right;
+    margin: 0.5rem;
+}
+
+.circle-close-btn {
+    height: 1.5rem;
+    width: 1.5rem;
+    border: none;
+    background-color: gray;
+    color: lightgray;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 670px) {
+    .local-weather-item .weather-value {
+        font-size: 80px;
+    }
+
+    .local-weather-item .weather-icon img {
+        height: 90px;
+        width: 90px;
+    }
+}
+
+header {
+    display: flex;
+    margin-bottom: 0.5rem;
+    padding: 0 5%;
+}
+
+.header-title {
+    font-size: 2.5rem;
+}
+
+.update-geo-btn {
+    background-color: lightgray;
+    color: gray;
+    font-size: 1rem;
+    border: 0;
+    margin: 0 3rem;
+    padding: 0 2rem;
+    border-radius: 5px;
+}
+
+.details-list {
+
+}
+
+.details-list :first-child {
+    margin-top: 0;
+}
+
+.addition-detail {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    padding: 0.625rem;
+    background-color: gray;
+    color: white;
+    font-size: 1rem;
+}
+
+.addition-detail div:first-child {
+    font-weight: bold;
+}
