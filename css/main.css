@@ -15,8 +15,9 @@ html, div, ul, li {
     display: flex;
     flex-direction: column;
     min-width: 45%;
-    width: calc((40rem - 100%) * 999);
+    width: calc((50rem - 100%) * 999);
     max-width: 90%;
+    margin-bottom: 2rem;
 }
 
 .local-weather-item {
@@ -30,7 +31,7 @@ html, div, ul, li {
 
 .local-weather-item .weather-details {
     min-width: 45%;
-    width: calc((40rem - 100%) * 999);
+    width: calc((50rem - 100%) * 999);
     max-width: 90%;
     display: flex;
     flex-direction: column;
@@ -45,7 +46,7 @@ html, div, ul, li {
 
 .local-weather-item .main-info {
     min-width: 45%;
-    width: calc((40rem - 100%) * 999);
+    width: calc((50rem - 100%) * 999);
     max-width: 90%;
     display: block;
 }
@@ -56,7 +57,7 @@ html, div, ul, li {
 
 .local-weather-item .city-name {
     margin: 0.5rem;
-    font-size: calc(2.5rem + (10 - 2.5) * (100vw - 40rem) / (200 - 40));;
+    font-size: calc(2.5rem + (10 - 2.5) * (100vw - 50rem) / (200 - 50));;
 }
 
 .weather-icon img {
@@ -65,8 +66,8 @@ html, div, ul, li {
 }
 
 .local-weather-item .weather-icon img {
-    width: calc(5rem + (20 - 5) * (100vw - 40rem) / (200 - 40));
-    height: calc(5rem + (20 - 5) * (100vw - 40rem) / (200 - 40));
+    width: calc(5rem + (20 - 5) * (100vw - 50rem) / (200 - 50));
+    height: calc(5rem + (20 - 5) * (100vw - 50rem) / (200 - 50));
     float: left;
     margin: 0.5rem;
 }
@@ -76,7 +77,7 @@ html, div, ul, li {
 }
 
 .local-weather-item .weather-value {
-    font-size: calc(4rem + (18 - 4) * (100vw - 40rem) / (200 - 40));
+    font-size: calc(5rem + (18 - 5) * (100vw - 50rem) / (200 - 50));
     float: right;
     margin: 0.5rem;
 }
@@ -91,7 +92,26 @@ html, div, ul, li {
     cursor: pointer;
 }
 
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 830px) {
+    .weather-value {
+        font-size: calc(1.6rem + (3 - 1.6) * (100vw - 20rem) / (50 - 20));
+    }
+    .city-name {
+        font-size: calc(1.6rem + (3 - 1.6) * (100vw - 20rem) / (50 - 20));
+    }
+    .weather-icon img {
+        height: calc(2rem + (3.75 - 2) * (100vw - 20rem) / (50 - 20));
+        width: calc(2rem + (3.75 - 2) * (100vw - 20rem) / (50 - 20));
+    }
+    .circle-close-btn {
+        height: calc(2rem + (3.75 - 2) * (100vw - 20rem) / (50 - 20));
+        width: calc(2rem + (3.75 - 2) * (100vw - 20rem) / (50 - 20));
+        font-size: calc(1.5rem + (1.5 - 0.8) * (100vw - 20rem) / (50 - 20));
+    }
+
+    .local-weather-item .city-name {
+        font-size: 3rem;
+    }
     .local-weather-item .weather-value {
         font-size: 80px;
     }
