@@ -198,7 +198,7 @@ main {
         display: block;
     }
 
-    .refresh-geo-btn span {
+    .refresh-geo-btn .refresh-text {
         display: none;
     }
 
