@@ -134,6 +134,9 @@ main {
     font-size: calc(24px + (90 - 24) * (100vw - 800px) / (3200 - 800));
     margin-right: 8px;
     color: #6f818b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .local-weather-item .city-name {
@@ -161,7 +164,7 @@ main {
 }
 
 .local-weather-item .weather-value {
-    font-size: calc(80px + (288 - 80) * (100vw - 800px) / (3200 - 800));
+    font-size: calc(72px + (288 - 72) * (100vw - 800px) / (3200 - 800));
     float: right;
     margin: 8px;
 }
