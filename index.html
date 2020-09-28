@@ -9,11 +9,14 @@
     <title>Weather</title>
 </head>
 <body>
-<header>
-    <div class="header-title">Погода здесь</div>
-    <button class="update-geo-btn">Update geo</button>
-</header>
 <main>
+    <div class="local-header">
+        <h1 class="header-title">Погода здесь</h1>
+        <button class="refresh-geo-btn">
+            <i class="fa fa-refresh" aria-hidden="true"></i>
+            <div class="refresh-text">Обновить геолокацию</div>
+        </button>
+    </div>
     <div class="local-weather-item">
         <div class="main-info">
             <div class="city-name">
@@ -50,6 +53,13 @@
                 </li>
             </ul>
         </div>
+    </div>
+    <div class="fav-header">
+        <h1 class="fav-title">Избранное</h1>
+        <form class="fav-search">
+            <input type="search" inputmode="latin" name="fav-city-search" placeholder="Добавить новый город">
+            <input type="submit" value="+">
+        </form>
     </div>
     <ul class="weathers-list">
         <li class="weather-item">
