@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Weather</title>
 </head>
 <body>
@@ -13,8 +13,8 @@
     <div class="local-header">
         <h1 class="header-title">Погода здесь</h1>
         <button class="refresh-geo-btn">
-            <i class="fa fa-refresh" aria-hidden="true"></i>
-            <div class="refresh-text">Обновить геолокацию</div>
+            <span class="material-icons">cached</span>
+            <span class="refresh-text">Обновить геолокацию</span>
         </button>
     </div>
     <div class="local-weather-item">
@@ -57,8 +57,12 @@
     <div class="fav-header">
         <h1 class="fav-title">Избранное</h1>
         <form class="fav-search">
-            <input type="search" inputmode="latin" name="fav-city-search" placeholder="Добавить новый город">
-            <input type="submit" value="+">
+            <!--            <label for="fav-city-search"></label>-->
+            <input id="fav-city-search" type="search" inputmode="latin" name="fav-city-search"
+                   placeholder="Добавить новый город">
+            <button class="circle-btn add-fav-btn" type="submit">
+                <i class="material-icons">add</i>
+            </button>
         </form>
     </div>
     <ul class="weathers-list">
@@ -69,8 +73,8 @@
                 <div class="weather-icon">
                     <img src="img/sun_and_cloud.png" alt="">
                 </div>
-                <button class="circle-close-btn">
-                    <i class="fa fa-close"></i>
+                <button class="circle-btn">
+                    <i class="material-icons">close</i>
                 </button>
             </div>
             <div class="weather-details">
@@ -105,8 +109,8 @@
                 <div class="weather-icon">
                     <img src="img/sun_and_cloud.png" alt="">
                 </div>
-                <button class="circle-close-btn">
-                    <i class="fa fa-close"></i>
+                <button class="circle-btn">
+                    <i class="material-icons">close</i>
                 </button>
             </div>
             <div class="weather-details">
@@ -141,8 +145,8 @@
                 <div class="weather-icon">
                     <img src="img/sun_and_cloud.png" alt="">
                 </div>
-                <button class="circle-close-btn">
-                    <i class="fa fa-close"></i>
+                <button class="circle-btn">
+                    <i class="material-icons">close</i>
                 </button>
             </div>
             <div class="weather-details">
@@ -177,8 +181,8 @@
                 <div class="weather-icon">
                     <img src="img/sun_and_cloud.png" alt="">
                 </div>
-                <button class="circle-close-btn">
-                    <i class="fa fa-close"></i>
+                <button class="circle-btn">
+                    <i class="material-icons">close</i>
                 </button>
             </div>
             <div class="weather-details">
@@ -208,6 +212,5 @@
         </li>
     </ul>
 </main>
-<footer>Footer</footer>
 </body>
 </html>

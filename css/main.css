@@ -19,7 +19,6 @@ main {
 .local-header {
     display: flex;
     justify-content: flex-start;
-
     margin: 0 auto 20px;
     width: 100%;
 }
@@ -37,9 +36,10 @@ main {
     border: 0;
     border-radius: 5px;
     padding: 0 20px;
+    cursor: pointer;
 }
 
-.refresh-geo-btn i {
+.refresh-geo-btn .material-icons {
     display: none;
 }
 
@@ -64,6 +64,21 @@ main {
     justify-content: space-between;
 }
 
+.circle-btn {
+    height: 30px;
+    width: 30px;
+    margin-left: auto;
+    border: none;
+    background-color: #6f818b;
+    color: lightgray;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.circle-btn .material-icons {
+    font-size: 15px;
+}
+
 .fav-header {
     display: flex;
     flex-wrap: wrap;
@@ -71,20 +86,84 @@ main {
     margin: 20px auto;
 }
 
+.fav-title {
+    flex-grow: 3;
+    margin-top: 20px;
+}
+
+.fav-search {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-grow: 1;
+    margin-top: 20px;
+}
+
 .fav-search input[type="search"] {
+    flex-grow: 1;
     height: 40px;
-    width: 320px;
+    background-color: lightgray;
+    margin-right: 20px;
+    border: 0;
     padding: 10px;
 }
 
-.fav-search input[type="submit"] {
-    height: 40px;
-    width: 40px;
-    border: none;
-    background-color: gray;
-    color: lightgray;
-    border-radius: 50%;
-    cursor: pointer;
+:focus {
+    outline: none;
+}
+
+.fav-search .circle-btn {
+    margin: 0;
+}
+
+.main-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.local-weather-item .main-info {
+    display: block;
+    min-width: 45%;
+    width: calc((800px - 100vw) * 999);
+    max-width: 100%;
+}
+
+.city-name {
+    font-size: 30px;
+    margin-right: 8px;
+    color: #6f818b;
+}
+
+.local-weather-item .city-name {
+    width: 100%;
+    font-size: calc(40px + (160 - 40) * (100vw - 800px) / (3200 - 800));;
+    margin: 8px;
+}
+
+.weather-icon img {
+    height: 30px;
+    width: 30px;
+}
+
+.local-weather-item .weather-icon img {
+    width: calc(80px + (320 - 80) * (100vw - 800px) / (3200 - 800));
+    height: calc(80px + (320 - 80) * (100vw - 800px) / (3200 - 800));
+    float: left;
+    margin: 8px;
+}
+
+.weather-value {
+    font-size: 30px;
+    margin-right: 8px;
+    color: #6f818b;
+}
+
+.local-weather-item .weather-value {
+    font-size: calc(80px + (288 - 80) * (100vw - 800px) / (3200 - 800));
+    float: right;
+    margin: 8px;
 }
 
 .local-weather-item .weather-details {
@@ -96,64 +175,6 @@ main {
     max-width: 100%;
 }
 
-.main-info {
-    display: flex;
-    justify-content: flex-start;
-    justify-items: flex-end;
-}
-
-.local-weather-item .main-info {
-    display: block;
-    min-width: 45%;
-    width: calc((800px - 100vw) * 999);
-    max-width: 100%;
-}
-
-.city-name {
-    font-size: 24px;
-    margin-right: 8px;
-}
-
-.local-weather-item .city-name {
-    width: 100%;
-    font-size: calc(40px + (160 - 40) * (100vw - 800px) / (3200 - 800));;
-    margin: 8px;
-}
-
-.weather-icon img {
-    height: 24px;
-    width: 24px;
-}
-
-.local-weather-item .weather-icon img {
-    width: calc(80px + (320 - 80) * (100vw - 800px) / (3200 - 800));
-    height: calc(80px + (320 - 80) * (100vw - 800px) / (3200 - 800));
-    float: left;
-    margin: 8px;
-}
-
-.weather-value {
-    font-size: 24px;
-    margin-right: 8px;
-}
-
-.local-weather-item .weather-value {
-    font-size: calc(80px + (288 - 80) * (100vw - 800px) / (3200 - 800));
-    float: right;
-    margin: 8px;
-}
-
-.circle-close-btn {
-    height: 24px;
-    width: 24px;
-    margin-left: auto;
-    border: none;
-    background-color: gray;
-    color: lightgray;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
 .details-list :first-child {
     margin-top: 0;
 }
@@ -161,7 +182,7 @@ main {
 .addition-detail {
     display: flex;
     justify-content: space-between;
-    background-color: gray;
+    background-color: #a8b0b2;
     color: white;
     font-size: 16px;
     margin-top: 8px;
@@ -172,12 +193,12 @@ main {
     font-weight: bold;
 }
 
-@media screen and (max-width: 800px) {
-    .refresh-geo-btn i {
+@media screen and (max-width: 799px) {
+    .refresh-geo-btn .material-icons {
         display: block;
     }
 
-    .refresh-geo-btn div {
+    .refresh-geo-btn span {
         display: none;
     }
 
@@ -190,19 +211,24 @@ main {
         font-size: calc(25px + (48 - 25) * (100vw - 320px) / (800 - 320));
     }
 
+    .local-weather-item .city-name {
+        font-size: 48px;
+    }
+
     .weather-icon img {
         height: calc(32px + (60 - 32) * (100vw - 320px) / (800 - 320));
         width: calc(32px + (60 - 32) * (100vw - 320px) / (800 - 320));
     }
 
-    .circle-close-btn {
-        height: calc(32px + (60 - 32) * (100vw - 320px) / (800 - 320));
-        width: calc(32px + (60 - 32) * (100vw - 320px) / (800 - 320));
-        font-size: calc(16px + (30 - 16) * (100vw - 320px) / (800 - 320));
+    .local-weather-item .weather-icon img {
+        width: 90px;
+        height: 90px;
     }
 
-    .local-weather-item .city-name {
-        font-size: 48px;
+    .circle-btn {
+        height: 40px;
+        width: 40px;
+        font-size: 20px;
     }
 
     .local-weather-item .weather-value {
@@ -210,8 +236,7 @@ main {
         text-align: right;
     }
 
-    .local-weather-item .weather-icon img {
-        width: 90px;
-        height: 90px;
+    .fav-search {
+        width: 100%;
     }
 }
