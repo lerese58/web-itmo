@@ -88,7 +88,6 @@ main {
 
 .fav-title {
     flex-grow: 3;
-    margin-top: 20px;
 }
 
 .fav-search {
@@ -194,49 +193,58 @@ main {
 }
 
 @media screen and (max-width: 799px) {
+    h1 {
+        font-size: calc(30px + (48 - 30) * (100vw - 320px) / (800 - 320));
+    }
     .refresh-geo-btn .material-icons {
         display: block;
     }
 
-    .refresh-geo-btn .refresh-text {
+    .refresh-geo-btn .refresh-btn-text {
         display: none;
     }
 
     .weather-value {
-        font-size: calc(25px + (48 - 25) * (100vw - 320px) / (800 - 320));
+        font-size: calc(22px + (48 - 22) * (100vw - 320px) / (800 - 320));
         vertical-align: center;
     }
 
     .city-name {
-        font-size: calc(25px + (48 - 25) * (100vw - 320px) / (800 - 320));
+        font-size: calc(20px + (48 - 20) * (100vw - 320px) / (800 - 320));
     }
 
     .local-weather-item .city-name {
-        font-size: 48px;
+        font-size: calc(40px + (60 - 40) * (100vw - 320px) / (800 - 320));
     }
 
     .weather-icon img {
-        height: calc(32px + (60 - 32) * (100vw - 320px) / (800 - 320));
-        width: calc(32px + (60 - 32) * (100vw - 320px) / (800 - 320));
+        height: calc(30px + (50 - 30) * (100vw - 320px) / (800 - 320));
+        width: calc(30px + (50 - 30) * (100vw - 320px) / (800 - 320));
     }
 
     .local-weather-item .weather-icon img {
-        width: 90px;
-        height: 90px;
+        width: calc(72px + (144 - 72) * (100vw - 320px) / (800 - 320));
+        height: calc(72px + (144 - 72) * (100vw - 320px) / (800 - 320));
     }
 
     .circle-btn {
-        height: 40px;
-        width: 40px;
-        font-size: 20px;
+        height: calc(30px + (50 - 30) * (100vw - 320px) / (800 - 320));
+        width: calc(30px + (50 - 30) * (100vw - 320px) / (800 - 320));
+    }
+    .circle-btn .material-icons {
+        font-size: calc(15px + (30 - 15) * (100vw - 320px) / (800 - 320));
     }
 
     .local-weather-item .weather-value {
-        font-size: 80px;
+        /*font-size: 140px;*/
+        font-size: calc(60px + (120 - 60) * (100vw - 320px) / (800 - 320));
         text-align: right;
     }
 
     .fav-search {
         width: 100%;
+    }
+    .fav-search input[type="search"] {
+        height: calc(30px + (50 - 30) * (100vw - 320px) / (800 - 320));
     }
 }
