@@ -9,9 +9,12 @@ function updateLocalWeather() {
     const waitingItem = localWeatherItemWaiting()
     insertComponent(waitingItem, localWeatherItemParent)
     navigator.geolocation.getCurrentPosition(async position => {
-            const weather = await weatherAPI.getByPosition(position)
-            localWeatherItemParent.innerHTML = ""
-            insertComponent(localWeatherItem(weather), localWeatherItemParent)
+            weatherAPI.getByPosition(position)
+                .then(weather => {
+                    localWeatherItemParent.innerHTML = ""
+                    insertComponent(localWeatherItem(weather), localWeatherItemParent)
+                })
+                .catch(() => alert('Что-то пошло не так... Пожалуйста, обновите страницу'))
         },
         positionError => alert(positionError.message))
 }

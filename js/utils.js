@@ -89,6 +89,7 @@ const updateFavList = () => {
         const newCityElement = weatherItemParent.querySelector(`.weather-item[key=${cityToAdd}]`)
         weatherAPI.getByCity(cityToAdd)
             .then(weather => insertComponent(weatherItem(weather), weatherItemParent, newCityElement))
+            .catch(() => alert('Что-то пошло не так... Пожалуйста, обновите страницу'))
     })
 };
 
