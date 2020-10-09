@@ -6,211 +6,131 @@
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="js/weatherAPI.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
     <title>Weather</title>
 </head>
 <body>
 <main>
     <div class="local-header">
-        <h1 class="header-title">Погода здесь</h1>
-        <button class="refresh-geo-btn">
-            <span class="material-icons">cached</span>
+        <h1 class="header-text">Погода здесь</h1>
+        <button class="refresh-btn" onclick="">
+            <img class="icon" src="img/refresh.svg" alt="refresh"/>
             <span class="refresh-btn-text">Обновить геолокацию</span>
         </button>
     </div>
-    <div class="local-weather-item">
-        <div class="main-info">
-            <div class="city-name">
-                Moscow
-            </div>
-            <div class="weather-icon">
-                <img src="img/sun_and_cloud.png" alt="">
-            </div>
-            <div class="weather-value">
-                +10°C
-            </div>
-        </div>
-        <div class="weather-details">
-            <ul class="details-list">
-                <li class="addition-detail">
-                    <div>Wind</div>
-                    <div>10</div>
-                </li>
-                <li class="addition-detail">
-                    <div>Cloud</div>
-                    <div>Broken clouds</div>
-                </li>
-                <li class="addition-detail">
-                    <div>Pressure</div>
-                    <div>1013 hpa</div>
-                </li>
-                <li class="addition-detail">
-                    <div>Water</div>
-                    <div>52%</div>
-                </li>
-                <li class="addition-detail">
-                    <div>Coordinates</div>
-                    <div>[59.88, 30.42]</div>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <div class="local-weather-item"></div>
     <div class="fav-header">
         <h1 class="fav-title">Избранное</h1>
         <form class="fav-search">
             <!--            <label for="fav-city-search"></label>-->
-            <input id="fav-city-search" type="search" inputmode="latin" name="fav-city-search"
+            <input id="fav-city-search" type="search" name="fav-city-search"
                    placeholder="Добавить новый город">
             <button class="circle-btn add-fav-btn" type="submit">
-                <span class="material-icons">add</span>
+                <img class="icon" src="img/add.svg" alt="add"/>
             </button>
         </form>
     </div>
-    <ul class="weathers-list">
-        <li class="weather-item">
-            <div class="main-info">
-                <div class="city-name">Saint-Petersburg</div>
-                <div class="weather-value">+10°C</div>
-                <div class="weather-icon">
-                    <img src="img/sun_and_cloud.png" alt="">
-                </div>
-                <button class="circle-btn">
-                    <span class="material-icons">close</span>
-                </button>
-            </div>
-            <div class="weather-details">
-                <ul class="details-list">
-                    <li class="addition-detail">
-                        <div>Wind</div>
-                        <div>10</div>
-                    </li>
-                    <li class="addition-detail">
-                        <div>Cloud</div>
-                        <div>Broken clouds</div>
-                    </li>
-                    <li class="addition-detail">
-                        <div>Pressure</div>
-                        <div>1013 hpa</div>
-                    </li>
-                    <li class="addition-detail">
-                        <div>Water</div>
-                        <div>52%</div>
-                    </li>
-                    <li class="addition-detail">
-                        <div>Coordinates</div>
-                        <div>[59.88, 30.42]</div>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <li class="weather-item">
-            <div class="main-info">
-                <div class="city-name">Kazan</div>
-                <div class="weather-value">+10°C</div>
-                <div class="weather-icon">
-                    <img src="img/sun_and_cloud.png" alt="">
-                </div>
-                <button class="circle-btn">
-                    <span class="material-icons">close</span>
-                </button>
-            </div>
-            <div class="weather-details">
-                <ul class="details-list">
-                    <li class="addition-detail">
-                        <div>Wind</div>
-                        <div>10</div>
-                    </li>
-                    <li class="addition-detail">
-                        <div>Cloud</div>
-                        <div>Broken clouds</div>
-                    </li>
-                    <li class="addition-detail">
-                        <div>Pressure</div>
-                        <div>1013 hpa</div>
-                    </li>
-                    <li class="addition-detail">
-                        <div>Water</div>
-                        <div>52%</div>
-                    </li>
-                    <li class="addition-detail">
-                        <div>Coordinates</div>
-                        <div>[59.88, 30.42]</div>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <li class="weather-item">
-            <div class="main-info">
-                <div class="city-name">Ufa</div>
-                <div class="weather-value">+10°C</div>
-                <div class="weather-icon">
-                    <img src="img/sun_and_cloud.png" alt="">
-                </div>
-                <button class="circle-btn">
-                    <span class="material-icons">close</span>
-                </button>
-            </div>
-            <div class="weather-details">
-                <ul class="details-list">
-                    <li class="addition-detail">
-                        <div>Wind</div>
-                        <div>10</div>
-                    </li>
-                    <li class="addition-detail">
-                        <div>Cloud</div>
-                        <div>Broken clouds</div>
-                    </li>
-                    <li class="addition-detail">
-                        <div>Pressure</div>
-                        <div>1013 hpa</div>
-                    </li>
-                    <li class="addition-detail">
-                        <div>Water</div>
-                        <div>52%</div>
-                    </li>
-                    <li class="addition-detail">
-                        <div>Coordinates</div>
-                        <div>[59.88, 30.42]</div>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <li class="weather-item">
-            <div class="main-info">
-                <div class="city-name">Saint-Petersburg</div>
-                <div class="weather-value">+10°C</div>
-                <div class="weather-icon">
-                    <img src="img/sun_and_cloud.png" alt="">
-                </div>
-                <button class="circle-btn">
-                    <span class="material-icons">close</span>
-                </button>
-            </div>
-            <div class="weather-details">
-                <ul class="details-list">
-                    <li class="addition-detail">
-                        <div>Wind</div>
-                        <div>10</div>
-                    </li>
-                    <li class="addition-detail">
-                        <div>Cloud</div>
-                        <div>Broken clouds</div>
-                    </li>
-                    <li class="addition-detail">
-                        <div>Pressure</div>
-                        <div>1013 hpa</div>
-                    </li>
-                    <li class="addition-detail">
-                        <div>Water</div>
-                        <div>52%</div>
-                    </li>
-                    <li class="addition-detail">
-                        <div>Coordinates</div>
-                        <div>[59.88, 30.42]</div>
-                    </li>
-                </ul>
-            </div>
-        </li>
-    </ul>
+    <ul class="weather-item-list"></ul>
 </main>
+
+<template id="local-weather-item">
+    <div class="main-info">
+        <div class="city-name">
+            Moscow
+        </div>
+        <div class="weather-icon">
+            <img src="img/sun_and_cloud.png" alt="">
+        </div>
+        <div class="temperature-value">
+            10°C
+        </div>
+    </div>
+    <div class="weather-details">
+        <ul class="additional-params-list">
+            <li class="param wind">
+                <div class="param-name">Wind</div>
+                <div class="param-value">10</div>
+            </li>
+            <li class="param cloud">
+                <div class="param-name">Cloud</div>
+                <div class="param-value">Broken clouds</div>
+            </li>
+            <li class="param pressure">
+                <div class="param-name">Pressure</div>
+                <div class="param-value">1013 hpa</div>
+            </li>
+            <li class="param humidity">
+                <div class="param-name">Water</div>
+                <div class="param-value">52%</div>
+            </li>
+            <li class="param coords">
+                <div class="param-name">Coordinates</div>
+                <div class="param-value">[59.88, 30.42]</div>
+            </li>
+        </ul>
+    </div>
+</template>
+<template id="local-weather-item-waiting">
+    <div class="waiting">
+        <h1>Подождите, данные загружаются</h1>
+        <img src='img/icon-refresh.svg' alt="">
+    </div>
+</template>
+<template id="weather-item">
+    <li class="weather-item">
+        <div class="main-info">
+            <div class="city-name">Saint-Petersburg</div>
+            <div class="temperature-value"></div>
+            <div class="weather-icon">
+                <img src="" alt="">
+            </div>
+            <button class="remove-city-btn circle-btn">
+                <img class="icon" src="img/close.svg" alt=""/>
+            </button>
+        </div>
+        <div class="weather-details">
+            <ul class="additional-params-list">
+                <li class="param wind">
+                    <div class="param-name">Wind</div>
+                    <div class="param-value">10</div>
+                </li>
+                <li class="param cloud">
+                    <div class="param-name">Cloud</div>
+                    <div class="param-value">Broken clouds</div>
+                </li>
+                <li class="param pressure">
+                    <div class="param-name">Pressure</div>
+                    <div class="param-value">1013 hpa</div>
+                </li>
+                <li class="param humidity">
+                    <div class="param-name">Water</div>
+                    <div class="param-value">52%</div>
+                </li>
+                <li class="param coords">
+                    <div class="param-name">Coordinates</div>
+                    <div class="param-value">[59.88, 30.42]</div>
+                </li>
+            </ul>
+        </div>
+    </li>
+</template>
+<template id="weather-item-waiting">
+    <li class="weather-item">
+        <div class="main-info">
+            <div class="city-name"></div>
+            <button class="remove-city-btn circle-btn">
+                <img class="icon" src="img/close.svg" alt=""/>
+            </button>
+        </div>
+        <div class="weather-details">
+            <div class="waiting">
+                <h2>Подождите, данные загружаются</h2>
+                <img src='img/icon-refresh.svg' alt="">
+            </div>
+        </div>
+    </li>
+</template>
 </body>
+<script type="text/javascript" src="js/main.js"></script>
 </html>
