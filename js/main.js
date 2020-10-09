@@ -2,7 +2,8 @@ const weatherAPI = new WeatherAPI()
 
 const localWeatherItemParent = document.querySelector('.local-weather-item')
 const weatherItemParent = document.querySelector('.weather-item-list');
-localStorage.setItem('favCityList', '[]')
+if (!localStorage.getItem('favCityList'))
+    localStorage.setItem('favCityList', '[]')
 
 function updateLocalWeather() {
     localWeatherItemParent.innerHTML = ""
@@ -16,11 +17,11 @@ function updateLocalWeather() {
                 })
                 .catch(() => alert('Что-то пошло не так... Пожалуйста, обновите страницу'))
         },
-        positionError => alert(positionError.message))
+        positionError => console.log(positionError.message))
 }
 
-updateLocalWeather()
 updateFavList()
+updateLocalWeather()
 
 const refreshBtn = document.querySelector('.refresh-btn')
 refreshBtn.addEventListener('click', updateLocalWeather)

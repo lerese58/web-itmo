@@ -7,13 +7,13 @@ const removeFromFavorites = evt => {
 const addToFavorites = async evt => {
     evt.preventDefault()
     const searchInput = document.getElementById('fav-city-search')
-    const cityName = searchInput.value
+    const cityName = searchInput.value.trim()
     const response = await weatherAPI.getByCity(cityName)
     if (response.cod === 200) {
         const favCityList = JSON.parse(localStorage.getItem('favCityList'))
         localStorage.setItem('favCityList', JSON.stringify([cityName, ...favCityList]))
         updateFavList()
-    } else if (response.cod === 404)
+    } else if (response.cod === '404')
         alert(`${cityName} не найден`)
     searchInput.value = ''
 }
