@@ -2,6 +2,7 @@ const weatherAPI = new WeatherAPI()
 
 const localWeatherItemParent = document.querySelector('.local-weather-item')
 const weatherItemParent = document.querySelector('.weather-item-list');
+localStorage.setItem('favCityList', '[]')
 
 function updateLocalWeather() {
     localWeatherItemParent.innerHTML = ""
