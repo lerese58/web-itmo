@@ -4,7 +4,7 @@ html, div, ul, li {
     list-style-type: none;
 }
 
-h1 {
+h1, h2 {
     font-size: calc(48px + (120 - 48) * (100vw - 800px) / (3200 - 800));
     font-weight: normal;
     color: gray;
@@ -216,7 +216,7 @@ main {
 }
 
 @media screen and (max-width: 799px) {
-    h1 {
+    h1, h2 {
         font-size: calc(30px + (48 - 30) * (100vw - 320px) / (800 - 320));
     }
     .refresh-btn .icon {

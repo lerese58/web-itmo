@@ -21,9 +21,8 @@
     </div>
     <div class="local-weather-item"></div>
     <div class="fav-header">
-        <h1 class="fav-title">Избранное</h1>
+        <h2 class="fav-title">Избранное</h2>
         <form class="fav-search">
-            <!--            <label for="fav-city-search"></label>-->
             <input id="fav-city-search" type="search" name="fav-city-search"
                    placeholder="Добавить новый город">
             <button class="circle-btn add-fav-btn" type="submit">
@@ -40,7 +39,7 @@
             Moscow
         </div>
         <div class="weather-icon">
-            <img src="img/sun_and_cloud.png" alt="">
+            <img src="" alt="">
         </div>
         <div class="temperature-value">
             10°C
@@ -80,7 +79,7 @@
 <template id="weather-item">
     <li class="weather-item">
         <div class="main-info">
-            <div class="city-name">Saint-Petersburg</div>
+            <h3 class="city-name">Saint-Petersburg</h3>
             <div class="temperature-value"></div>
             <div class="weather-icon">
                 <img src="" alt="">
@@ -118,14 +117,14 @@
 <template id="weather-item-waiting">
     <li class="weather-item">
         <div class="main-info">
-            <div class="city-name"></div>
+            <h3 class="city-name"></h3>
             <button class="remove-city-btn circle-btn">
                 <img class="icon" src="img/close.svg" alt=""/>
             </button>
         </div>
         <div class="weather-details">
             <div class="waiting">
-                <h2>Подождите, данные загружаются</h2>
+                <div>Подождите, данные загружаются</div>
                 <img src='img/icon-refresh.svg' alt="">
             </div>
         </div>
