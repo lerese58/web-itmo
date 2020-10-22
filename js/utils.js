@@ -26,10 +26,10 @@ const addToFavorites = async evt => {
         replaceComponent(newCheckedCityNode, weatherItemParent, uncheckedCityElem)
 
         const favCityList = JSON.parse(localStorage.getItem('favCityList'))
-        localStorage.setItem('favCityList', JSON.stringify([cityName, ...favCityList]))
+        localStorage.setItem('favCityList', JSON.stringify([response.name, ...favCityList]))
 
         const newWeatherNode = weatherComponent(response)
-        const waitingElem = document.getElementById(`waiting-${encodeURI(cityName)}`)
+        const waitingElem = document.getElementById(`waiting-${encodeURI(response.name)}`)
         replaceComponent(newWeatherNode, weatherItemParent, waitingElem)
     } else if (response.cod === '404')
         alert(`${cityName} не найден`)
@@ -77,7 +77,16 @@ function updateLocalWeather() {
                 })
                 .catch(() => alert('Что-то пошло не так... Пожалуйста, обновите страницу'))
         },
-        positionError => console.log(positionError.message))
+        positionError => {
+            alert(`${positionError.message}.\n Город выбран по умолчанию`)
+            const defaultCityName = 'Москва'
+            weatherAPI.getByCity(defaultCityName)
+                .then(weather => {
+                    localWeatherItemParent.innerHTML = ""
+                    insertComponent(localWeatherComponent(weather), localWeatherItemParent)
+                })
+                .catch('Что-то пошло не так... Пожалуйста, обновите страницу')
+        })
 }
 
 function updateFavList() {
