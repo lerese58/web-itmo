@@ -1,5 +1,7 @@
 const weatherAPI = new WeatherAPI()
 
+insertComponent(localWeatherWaitingComponent(), localWeatherItemParent)
+
 if (!localStorage.getItem('favCityList'))
     localStorage.setItem('favCityList', '[]')
 
