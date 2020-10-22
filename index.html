@@ -67,7 +67,7 @@
         </ul>
     </div>
 </template>
-<template id="local-weather-item-waiting">
+<template id="local-waiting-item">
     <div class="waiting">
         <h1>Подождите, данные загружаются</h1>
         <img src='img/icon-refresh.svg' alt="">
@@ -111,7 +111,7 @@
         </div>
     </li>
 </template>
-<template id="weather-item-waiting">
+<template id="waiting-item">
     <li class="weather-item">
         <div class="main-info">
             <h3 class="city-name"></h3>
@@ -122,6 +122,22 @@
         <div class="weather-details">
             <div class="waiting">
                 <div>Подождите, данные загружаются</div>
+                <img src='img/icon-refresh.svg' alt="">
+            </div>
+        </div>
+    </li>
+</template>
+<template id="undefined-city-item">
+    <li class="weather-item">
+        <div class="main-info">
+            <h3 class="city-name"></h3>
+            <button class="remove-city-btn circle-btn">
+                <img class="icon" src="img/close.svg" alt=""/>
+            </button>
+        </div>
+        <div class="weather-details">
+            <div class="undefined-city">
+                <div>Поиск города</div>
                 <img src='img/icon-refresh.svg' alt="">
             </div>
         </div>
