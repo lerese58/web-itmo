@@ -1,11 +1,13 @@
 html, div, ul, li {
-    padding-left: 0;
-    margin-left: 0;
+    padding: 0;
+    margin: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
     list-style-type: none;
 }
 
 h1, h2 {
-    font-size: calc(48px + (120 - 48) * (100vw - 800px) / (3200 - 800));
+    font-size: calc(48px + (144 - 48) * (100vw - 800px) / (3200 - 800));
     font-weight: normal;
     color: gray;
     margin: 0;
@@ -18,62 +20,34 @@ main {
 
 .local-header {
     display: flex;
-    justify-content: flex-start;
-    margin: 0 auto 20px;
-    width: 100%;
-}
-
-.header-text {
-    width: fit-content;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto calc(20px + (60 - 20) * (100vw - 800px) / (3200 - 800));
 }
 
 .refresh-btn {
-    width: fit-content;
     background-color: lightgray;
     color: gray;
-    font-size: calc(16px + (48 - 16) * (100vw - 800px) / (3200 - 800));
-    margin-left: 40px;
     border: 0;
-    border-radius: 5px;
-    padding: 0 20px;
+    border-radius: calc(5px + (20 - 5) * (100vw - 800px) / (3200 - 800));
+    padding: calc(20px + (60 - 20) * (100vw - 800px) / (3200 - 800));
     cursor: pointer;
+}
+
+.refresh-btn span {
+    font-size: calc(16px + (64 - 16) * (100vw - 800px) / (3200 - 800));
 }
 
 .refresh-btn .icon {
     display: none;
 }
 
-.weather-item-list {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.weather-item {
-    display: flex;
-    flex-direction: column;
-    min-width: 45%;
-    width: calc((800px - 100vw) * 999);
-    max-width: 100%;
-    margin-bottom: 32px;
-}
-
-.local-weather-item {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-.waiting {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .circle-btn {
-    height: calc(30px + (100 - 30) * (100vw - 800px) / (3200 - 800));
-    width: calc(30px + (100 - 30) * (100vw - 800px) / (3200 - 800));
-    margin-left: auto;
+    height: calc(30px + (120 - 30) * (100vw - 800px) / (3200 - 800));
+    width: calc(30px + (120 - 30) * (100vw - 800px) / (3200 - 800));
+    justify-self: flex-end;
+    flex-shrink: 0;
+    margin-left: calc(8px + (32 - 8) * (100vw - 800px) / (3200 - 800));
     border: none;
     padding: 0;
     background-color: #6f818b;
@@ -91,7 +65,8 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 20px auto;
+    align-items: center;
+    margin: calc(32px + (100 - 32) * (100vw - 800px) / (3200 - 800)) auto;
 }
 
 .fav-title {
@@ -103,17 +78,16 @@ main {
     justify-content: flex-end;
     align-items: center;
     flex-grow: 1;
-    margin-top: 20px;
 }
 
 .fav-search input[type="search"] {
     flex-grow: 1;
-    height: calc(30px + (100 - 30) * (100vw - 800px) / (3200 - 800));
+    height: calc(45px + (135 - 45) * (100vw - 800px) / (3200 - 800));
     font-size: calc(16px + (48 - 16) * (100vw - 800px) / (3200 - 800));
     background-color: lightgray;
-    margin-right: 20px;
+    margin-right: calc(20px + (80 - 20) * (100vw - 800px) / (3200 - 800));
     border: 0;
-    padding: 10px;
+    padding: calc(10px + (40 - 10) * (100vw - 800px) / (3200 - 800));
 }
 
 :focus {
@@ -122,13 +96,43 @@ main {
 
 .fav-search .circle-btn {
     margin: 0;
+    height: calc(45px + (180 - 45) * (100vw - 800px) / (3200 - 800));
+    width: calc(45px + (180 - 45) * (100vw - 800px) / (3200 - 800));
+}
+
+.weather-item-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.weather-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 45%;
+    width: calc((800px - 100vw) * 999);
+    max-width: 100%;
+    margin-bottom: calc(32px + (128 - 32) * (100vw - 800px) / (3200 - 800));
+}
+
+.local-weather-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.waiting {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-info {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: calc(8px + (32 - 8) * (100vw - 800px) / (3200 - 800));
 }
 
 .local-weather-item .main-info {
@@ -139,8 +143,9 @@ main {
 }
 
 .city-name {
-    font-size: calc(24px + (90 - 24) * (100vw - 800px) / (3200 - 800));
-    margin-right: 8px;
+    font-size: calc(24px + (96 - 24) * (100vw - 800px) / (3200 - 800));
+    margin: 0 calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800));
+    font-weight: normal;
     color: #6f818b;
     white-space: nowrap;
     overflow: hidden;
@@ -149,42 +154,43 @@ main {
 
 .local-weather-item .city-name {
     width: 100%;
-    font-size: calc(24px + (160 - 24) * (100vw - 800px) / (3200 - 800));
-    margin: 8px;
+    font-size: calc(32px + (128 - 32) * (100vw - 800px) / (3200 - 800));
+    white-space: normal;
 }
 
 .weather-icon {
     background-color: #a8b0b2;
-    border-radius: 5px;
+    border-radius: calc(4px + (16 - 4) * (100vw - 800px) / (3200 - 800));
+    margin: 0 calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800));
 }
 
 .weather-icon img {
-    height: calc(30px + (100 - 30) * (100vw - 800px) / (3200 - 800));
-    width: calc(30px + (100 - 30) * (100vw - 800px) / (3200 - 800));
+    height: calc(30px + (120 - 30) * (100vw - 800px) / (3200 - 800));
+    width: calc(30px + (120 - 30) * (100vw - 800px) / (3200 - 800));
 }
 
 .local-weather-item .weather-icon {
     width: calc(80px + (320 - 80) * (100vw - 800px) / (3200 - 800));
     height: calc(80px + (320 - 80) * (100vw - 800px) / (3200 - 800));
     float: left;
-    margin: 8px;
+    margin: calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800));
 }
+
 .local-weather-item .weather-icon img {
     width: calc(80px + (320 - 80) * (100vw - 800px) / (3200 - 800));
     height: calc(80px + (320 - 80) * (100vw - 800px) / (3200 - 800));
 }
 
-
 .temperature-value {
-    font-size: calc(24px + (90 - 24) * (100vw - 800px) / (3200 - 800));
-    margin-right: 8px;
+    font-size: calc(24px + (96 - 24) * (100vw - 800px) / (3200 - 800));
+    margin: 0 calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800));
     color: #6f818b;
 }
 
 .local-weather-item .temperature-value {
     font-size: calc(72px + (288 - 72) * (100vw - 800px) / (3200 - 800));
     float: right;
-    margin: 8px;
+    margin: calc(8px + (32 - 8) * (100vw - 800px) / (3200 - 800));
 }
 
 .local-weather-item .weather-details {
@@ -196,7 +202,7 @@ main {
     max-width: 100%;
 }
 
-.details-list :first-child {
+.additional-params-list :first-child {
     margin-top: 0;
 }
 
@@ -205,10 +211,10 @@ main {
     justify-content: space-between;
     background-color: #a8b0b2;
     color: white;
-    border-radius: 2px;
-    font-size: calc(20px + (48 - 20) * (100vw - 800px) / (3200 - 800));
-    margin-top: 8px;
-    padding: 10px;
+    border-radius: calc(2px + (8 - 2) * (100vw - 800px) / (3200 - 800));
+    font-size: calc(20px + (60 - 20) * (100vw - 800px) / (3200 - 800));
+    margin-top: calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800));
+    padding: calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800));
 }
 
 .param div:first-child {
@@ -217,11 +223,17 @@ main {
 
 @media screen and (max-width: 799px) {
     h1, h2 {
-        font-size: calc(30px + (48 - 30) * (100vw - 320px) / (800 - 320));
+        font-size: calc(30px + (64 - 30) * (100vw - 320px) / (800 - 320));
     }
+
+    .refresh-btn {
+        padding: 0 20px;
+    }
+
     .refresh-btn .icon {
         display: block;
-        width: 40px;
+        width: calc(40px + (64 - 40) * (100vw - 320px) / (800 - 320));
+        height: calc(40px + (64 - 40) * (100vw - 320px) / (800 - 320));
     }
 
     .refresh-btn .refresh-btn-text {
@@ -230,7 +242,6 @@ main {
 
     .temperature-value {
         font-size: calc(22px + (48 - 22) * (100vw - 320px) / (800 - 320));
-        vertical-align: center;
     }
 
     .city-name {
@@ -247,13 +258,13 @@ main {
     }
 
     .local-weather-item .weather-icon {
-        width: calc(72px + (144 - 72) * (100vw - 320px) / (800 - 320));
-        height: calc(72px + (144 - 72) * (100vw - 320px) / (800 - 320));
+        width: calc(80px + (144 - 80) * (100vw - 320px) / (800 - 320));
+        height: calc(80px + (144 - 80) * (100vw - 320px) / (800 - 320));
     }
 
     .local-weather-item .weather-icon img {
-        width: calc(72px + (144 - 72) * (100vw - 320px) / (800 - 320));
-        height: calc(72px + (144 - 72) * (100vw - 320px) / (800 - 320));
+        width: calc(80px + (144 - 80) * (100vw - 320px) / (800 - 320));
+        height: calc(80px + (144 - 80) * (100vw - 320px) / (800 - 320));
     }
 
     .circle-btn {
@@ -262,15 +273,23 @@ main {
     }
 
     .local-weather-item .temperature-value {
-        /*font-size: 140px;*/
-        font-size: calc(60px + (120 - 60) * (100vw - 320px) / (800 - 320));
-        text-align: right;
+        font-size: calc(72px + (120 - 72) * (100vw - 320px) / (800 - 320));
     }
 
     .fav-search {
         width: 100%;
     }
+
     .fav-search input[type="search"] {
+        margin-top: 16px;
         height: calc(30px + (50 - 30) * (100vw - 320px) / (800 - 320));
+    }
+
+    .fav-search .circle-btn {
+        margin-top: 16px;
+    }
+
+    .param {
+        font-size: calc(16px + (24 - 16) * (100vw - 320px) / (800 - 320));
     }
 }
