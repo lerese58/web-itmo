@@ -17,7 +17,7 @@ const addToFavorites = async evt => {
     searchInput.value = ''
 
     const newUncheckedCityNode = undefinedCityComponent(cityName)
-    insertComponent(newUncheckedCityNode, weatherItemParent)
+    const  insertedUncheckedElement = insertComponent(newUncheckedCityNode, weatherItemParent)
 
     const response = await weatherAPI.getByCity(cityName)
     if (response.cod === 200) {
@@ -31,8 +31,10 @@ const addToFavorites = async evt => {
         const newWeatherNode = weatherComponent(response)
         const waitingElem = document.getElementById(`waiting-${encodeURI(response.name)}`)
         replaceComponent(newWeatherNode, weatherItemParent, waitingElem)
-    } else if (response.cod === '404')
+    } else if (response.cod === '404') {
         alert(`${cityName} не найден`)
+        removeElement(insertedUncheckedElement)
+    }
 }
 
 const addCityElement = (cityToAdd) => {
