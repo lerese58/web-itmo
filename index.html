@@ -11,7 +11,7 @@
 <main>
     <div class="local-header">
         <h1 class="header-text">Погода здесь</h1>
-        <button class="refresh-btn" onclick="">
+        <button class="refresh-btn">
             <img class="icon" src="img/refresh.svg" alt="refresh"/>
             <span class="refresh-btn-text">Обновить геолокацию</span>
         </button>
@@ -20,8 +20,7 @@
     <div class="fav-header">
         <h2 class="fav-title">Избранное</h2>
         <form class="fav-search">
-            <input id="fav-city-search" type="search" name="fav-city-search"
-                   placeholder="Добавить новый город">
+            <input id="fav-city-search" type="search" name="favСity" placeholder="Добавить новый город">
             <button class="circle-btn add-fav-btn" type="submit">
                 <img class="icon" src="img/add.svg" alt="add"/>
             </button>
@@ -69,18 +68,16 @@
 </template>
 <template id="local-waiting-item">
     <div class="waiting">
-        <h1>Подождите, данные загружаются</h1>
+        <div>Подождите, данные загружаются...</div>
         <img src='img/icon-refresh.svg' alt="">
     </div>
 </template>
 <template id="weather-item">
     <li class="weather-item">
         <div class="main-info">
-            <h3 class="city-name">Saint-Petersburg</h3>
+            <h3 class="city-name"></h3>
             <div class="temperature-value"></div>
-            <div class="weather-icon">
-                <img src="" alt="">
-            </div>
+            <div class="weather-icon"><img src="" alt=""></div>
             <button class="remove-city-btn circle-btn">
                 <img class="icon" src="img/close.svg" alt=""/>
             </button>
@@ -88,24 +85,24 @@
         <div class="weather-details">
             <ul class="additional-params-list">
                 <li class="param wind">
-                    <div class="param-name">Wind</div>
-                    <div class="param-value">10</div>
+                    <div class="param-name">Ветер</div>
+                    <div class="param-value"></div>
                 </li>
                 <li class="param cloud">
-                    <div class="param-name">Cloud</div>
-                    <div class="param-value">Broken clouds</div>
+                    <div class="param-name">Облачность</div>
+                    <div class="param-value"></div>
                 </li>
                 <li class="param pressure">
-                    <div class="param-name">Pressure</div>
-                    <div class="param-value">1013 hpa</div>
+                    <div class="param-name">Давление</div>
+                    <div class="param-value"></div>
                 </li>
                 <li class="param humidity">
-                    <div class="param-name">Water</div>
-                    <div class="param-value">52%</div>
+                    <div class="param-name">Влажность</div>
+                    <div class="param-value"></div>
                 </li>
                 <li class="param coords">
-                    <div class="param-name">Coordinates</div>
-                    <div class="param-value">[59.88, 30.42]</div>
+                    <div class="param-name">Координаты</div>
+                    <div class="param-value"></div>
                 </li>
             </ul>
         </div>
@@ -121,7 +118,7 @@
         </div>
         <div class="weather-details">
             <div class="waiting">
-                <div>Подождите, данные загружаются</div>
+                <div>Подождите, данные загружаются...</div>
                 <img src='img/icon-refresh.svg' alt="">
             </div>
         </div>
@@ -137,7 +134,7 @@
         </div>
         <div class="weather-details">
             <div class="undefined-city">
-                <div>Поиск города</div>
+                <div>Поиск города...</div>
                 <img src='img/icon-refresh.svg' alt="">
             </div>
         </div>

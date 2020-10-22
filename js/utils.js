@@ -68,8 +68,7 @@ const getDeletedCityElements = () => {
 
 function updateLocalWeather() {
     localWeatherItemParent.innerHTML = ""
-    const waitingItem = localWeatherWaitingComponent()
-    insertComponent(waitingItem, localWeatherItemParent)
+    insertComponent(localWeatherWaitingComponent(), localWeatherItemParent)
     navigator.geolocation.getCurrentPosition(async position => {
             weatherAPI.getByPosition(position)
                 .then(weather => {
