@@ -121,11 +121,30 @@ main {
     justify-content: space-between;
 }
 
-.waiting {
+.waiting,
+.undefined-city {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #6f818b;
+    width: 100%;
+}
+
+.local-weather-item .waiting {
+    font-size: calc(30px + (120 - 30) * (100vw - 800px) / (3200 - 800));
+}
+
+.weather-item .waiting,
+.weather-item .undefined-city {
+    font-size: calc(16px + (64 - 16) * (100vw - 800px) / (3200 - 800));
+}
+
+.waiting img,
+.undefined-city img {
+    height: calc(40px + (160 - 40) * (100vw - 800px) / (3200 - 800));
+    width: calc(40px + (160 - 40) * (100vw - 800px) / (3200 - 800));
+    color: #6f818b;
 }
 
 .main-info {
@@ -144,7 +163,7 @@ main {
 
 .city-name {
     font-size: calc(24px + (96 - 24) * (100vw - 800px) / (3200 - 800));
-    margin: 0 calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800));
+    margin: 0 calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800)) 0 0;
     font-weight: normal;
     color: #6f818b;
     white-space: nowrap;
@@ -161,7 +180,7 @@ main {
 .weather-icon {
     background-color: #a8b0b2;
     border-radius: calc(4px + (16 - 4) * (100vw - 800px) / (3200 - 800));
-    margin: 0 calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800));
+    margin-right: calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800));
 }
 
 .weather-icon img {
@@ -183,7 +202,7 @@ main {
 
 .temperature-value {
     font-size: calc(24px + (96 - 24) * (100vw - 800px) / (3200 - 800));
-    margin: 0 calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800));
+    margin-right: calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800));
     color: #6f818b;
 }
 
