@@ -15,6 +15,11 @@ const addToFavorites = async evt => {
     const searchInput = document.getElementById('fav-city-search')
     const cityName = searchInput.value.trim()
     searchInput.value = ''
+    const favCityList = JSON.parse(localStorage.getItem('favCityList'))
+    if (Object.values(favCityList).includes(cityName)){
+        alert(`${cityName} уже добавлен`)
+        return;
+    }
 
     const newUncheckedCityNode = undefinedCityComponent(cityName)
     const  insertedUncheckedElement = insertComponent(newUncheckedCityNode, weatherItemParent)
@@ -25,12 +30,16 @@ const addToFavorites = async evt => {
         const uncheckedCityElem = document.getElementById(`undefined-city-${encodeURI(cityName)}`)
         replaceComponent(newCheckedCityNode, weatherItemParent, uncheckedCityElem)
 
-        const favCityList = JSON.parse(localStorage.getItem('favCityList'))
-        localStorage.setItem('favCityList', JSON.stringify([response.name, ...favCityList]))
+        if (Object.values(favCityList).includes(response.name)) {
+            alert(`${response.name} уже добавлен`)
+            removeElement(document.getElementById(`waiting-${encodeURI(response.name)}`))
+        } else {
+            localStorage.setItem('favCityList', JSON.stringify([response.name, ...favCityList]))
 
-        const newWeatherNode = weatherComponent(response)
-        const waitingElem = document.getElementById(`waiting-${encodeURI(response.name)}`)
-        replaceComponent(newWeatherNode, weatherItemParent, waitingElem)
+            const newWeatherNode = weatherComponent(response)
+            const waitingElem = document.getElementById(`waiting-${encodeURI(response.name)}`)
+            replaceComponent(newWeatherNode, weatherItemParent, waitingElem)
+        }
     } else if (response.cod === '404') {
         alert(`${cityName} не найден`)
         removeElement(insertedUncheckedElement)
