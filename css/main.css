@@ -7,7 +7,7 @@ html, div, ul, li {
 }
 
 h1, h2 {
-    font-size: calc(48px + (144 - 48) * (100vw - 800px) / (3200 - 800));
+    font-size: calc(3rem + (9 - 3) * (100vw - 50rem) / (200 - 50));
     font-weight: normal;
     color: gray;
     margin: 0;
@@ -22,20 +22,20 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto calc(20px + (60 - 20) * (100vw - 800px) / (3200 - 800));
+    margin: 0 auto calc(1.25rem + (3.75 - 1.25) * (100vw - 50rem) / (200 - 50));
 }
 
 .refresh-btn {
     background-color: lightgray;
     color: gray;
     border: 0;
-    border-radius: calc(5px + (20 - 5) * (100vw - 800px) / (3200 - 800));
-    padding: calc(20px + (60 - 20) * (100vw - 800px) / (3200 - 800));
+    border-radius: calc(0.5rem + (1.5 - 0.5) * (100vw - 50rem) / (200 - 50));
+    padding: calc(1.25rem + (3.75 - 1.25) * (100vw - 50rem) / (200 - 50));
     cursor: pointer;
 }
 
 .refresh-btn span {
-    font-size: calc(16px + (64 - 16) * (100vw - 800px) / (3200 - 800));
+    font-size: calc(1rem + (4 - 1) * (100vw - 50rem) / (200 - 50));
 }
 
 .refresh-btn .icon {
@@ -43,11 +43,11 @@ main {
 }
 
 .circle-btn {
-    height: calc(30px + (120 - 30) * (100vw - 800px) / (3200 - 800));
-    width: calc(30px + (120 - 30) * (100vw - 800px) / (3200 - 800));
+    height: calc(2rem + (7.5 - 2) * (100vw - 50rem) / (200 - 50));
+    width: calc(2rem + (7.5 - 2) * (100vw - 50rem) / (200 - 50));
     justify-self: flex-end;
     flex-shrink: 0;
-    margin-left: calc(8px + (32 - 8) * (100vw - 800px) / (3200 - 800));
+    margin-left: calc(0.5rem + (2 - 0.5) * (100vw - 50rem) / (200 - 50));
     border: none;
     padding: 0;
     background-color: #6f818b;
@@ -66,7 +66,7 @@ main {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin: calc(32px + (100 - 32) * (100vw - 800px) / (3200 - 800)) auto;
+    margin: calc(2rem + (6 - 2) * (100vw - 50rem) / (200 - 50)) auto;
 }
 
 .fav-title {
@@ -82,12 +82,12 @@ main {
 
 .fav-search input[type="search"] {
     flex-grow: 1;
-    height: calc(45px + (135 - 45) * (100vw - 800px) / (3200 - 800));
-    font-size: calc(16px + (48 - 16) * (100vw - 800px) / (3200 - 800));
+    height: calc(3rem + (9 - 3) * (100vw - 50rem) / (200 - 50));
+    font-size: calc(1rem + (3 - 1) * (100vw - 50rem) / (200 - 50));
     background-color: lightgray;
-    margin-right: calc(20px + (80 - 20) * (100vw - 800px) / (3200 - 800));
+    margin-right: calc(1rem + (4 - 1) * (100vw - 50rem) / (200 - 50));
     border: 0;
-    padding: calc(10px + (40 - 10) * (100vw - 800px) / (3200 - 800));
+    padding: calc(0.625rem + (4.5 - 0.625) * (100vw - 50rem) / (200 - 50));
 }
 
 :focus {
@@ -96,8 +96,8 @@ main {
 
 .fav-search .circle-btn {
     margin: 0;
-    height: calc(45px + (180 - 45) * (100vw - 800px) / (3200 - 800));
-    width: calc(45px + (180 - 45) * (100vw - 800px) / (3200 - 800));
+    height: calc(3rem + (11 - 3) * (100vw - 50rem) / (200 - 50));
+    width: calc(3rem + (11 - 3) * (100vw - 50rem) / (200 - 50));
 }
 
 .weather-item-list {
@@ -110,9 +110,9 @@ main {
     display: flex;
     flex-direction: column;
     min-width: 45%;
-    width: calc((800px - 100vw) * 999);
+    width: calc((50rem - 100vw) * 999);
     max-width: 100%;
-    margin-bottom: calc(32px + (128 - 32) * (100vw - 800px) / (3200 - 800));
+    margin-bottom: calc(2rem + (8 - 2) * (100vw - 50rem) / (200 - 50));
 }
 
 .local-weather-item {
@@ -132,18 +132,18 @@ main {
 }
 
 .local-weather-item .waiting {
-    font-size: calc(30px + (120 - 30) * (100vw - 800px) / (3200 - 800));
+    font-size: calc(2rem + (7.5 - 2) * (100vw - 50rem) / (200 - 50));
 }
 
 .weather-item .waiting,
 .weather-item .undefined-city {
-    font-size: calc(16px + (64 - 16) * (100vw - 800px) / (3200 - 800));
+    font-size: calc(1rem + (4 - 1) * (100vw - 50rem) / (200 - 50));
 }
 
 .waiting img,
 .undefined-city img {
-    height: calc(40px + (160 - 40) * (100vw - 800px) / (3200 - 800));
-    width: calc(40px + (160 - 40) * (100vw - 800px) / (3200 - 800));
+    height: calc(2.5rem + (10 - 2.5) * (100vw - 50rem) / (200 - 50));
+    width: calc(2.5rem + (10 - 2.5) * (100vw - 50rem) / (200 - 50));
     color: #6f818b;
 }
 
@@ -151,19 +151,19 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: calc(8px + (32 - 8) * (100vw - 800px) / (3200 - 800));
+    margin-bottom: calc(0.5rem + (2 - 0.5) * (100vw - 50rem) / (200 - 50));
 }
 
 .local-weather-item .main-info {
     display: block;
     min-width: 45%;
-    width: calc((800px - 100vw) * 999);
+    width: calc((50rem - 100vw) * 999);
     max-width: 100%;
 }
 
 .city-name {
-    font-size: calc(24px + (96 - 24) * (100vw - 800px) / (3200 - 800));
-    margin: 0 calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800)) 0 0;
+    font-size: calc(1.5rem + (6 - 1.5) * (100vw - 50rem) / (200 - 50));
+    margin: 0 calc(0.5rem + (1 - 0.5) * (100vw - 50rem) / (200 - 50)) 0 0;
     font-weight: normal;
     color: #6f818b;
     white-space: nowrap;
@@ -173,43 +173,43 @@ main {
 
 .local-weather-item .city-name {
     width: 100%;
-    font-size: calc(32px + (128 - 32) * (100vw - 800px) / (3200 - 800));
+    font-size: calc(2rem + (8 - 2) * (100vw - 50rem) / (200 - 50));
     white-space: normal;
 }
 
 .weather-icon {
     background-color: #a8b0b2;
-    border-radius: calc(4px + (16 - 4) * (100vw - 800px) / (3200 - 800));
-    margin-right: calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800));
+    border-radius: calc(0.25rem + (1 - 0.25) * (100vw - 50rem) / (200 - 50));
+    margin-right: calc(0.5rem + (1 - 0.5) * (100vw - 50rem) / (200 - 50));
 }
 
 .weather-icon img {
-    height: calc(30px + (120 - 30) * (100vw - 800px) / (3200 - 800));
-    width: calc(30px + (120 - 30) * (100vw - 800px) / (3200 - 800));
+    height: calc(2rem + (7.5 - 2) * (100vw - 50rem) / (200 - 50));
+    width: calc(2rem + (7.5 - 2) * (100vw - 50rem) / (200 - 50));
 }
 
 .local-weather-item .weather-icon {
-    width: calc(80px + (320 - 80) * (100vw - 800px) / (3200 - 800));
-    height: calc(80px + (320 - 80) * (100vw - 800px) / (3200 - 800));
+    width: calc(5rem + (20 - 5) * (100vw - 50rem) / (200 - 50));
+    height: calc(5rem + (20 - 5) * (100vw - 50rem) / (200 - 50));
     float: left;
-    margin: calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800));
+    margin: calc(0.5rem + (1 - 0.5) * (100vw - 50rem) / (200 - 50));
 }
 
 .local-weather-item .weather-icon img {
-    width: calc(80px + (320 - 80) * (100vw - 800px) / (3200 - 800));
-    height: calc(80px + (320 - 80) * (100vw - 800px) / (3200 - 800));
+    width: calc(5rem + (20 - 5) * (100vw - 50rem) / (200 - 50));
+    height: calc(5rem + (20 - 5) * (100vw - 50rem) / (200 - 50));
 }
 
 .temperature-value {
-    font-size: calc(24px + (96 - 24) * (100vw - 800px) / (3200 - 800));
-    margin-right: calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800));
+    font-size: calc(1.5rem + (6 - 1.5) * (100vw - 50rem) / (200 - 50));
+    margin-right: calc(0.5rem + (1 - 0.5) * (100vw - 50rem) / (200 - 50));
     color: #6f818b;
 }
 
 .local-weather-item .temperature-value {
-    font-size: calc(72px + (288 - 72) * (100vw - 800px) / (3200 - 800));
+    font-size: calc(4.5rem + (18 - 4.5) * (100vw - 50rem) / (200 - 50));
     float: right;
-    margin: calc(8px + (32 - 8) * (100vw - 800px) / (3200 - 800));
+    margin: calc(0.5rem + (2 - 0.5) * (100vw - 50rem) / (200 - 50));
 }
 
 .local-weather-item .weather-details {
@@ -217,7 +217,7 @@ main {
     flex-direction: column;
     justify-content: space-around;
     min-width: 45%;
-    width: calc((800px - 100vw) * 999);
+    width: calc((50rem - 100vw) * 999);
     max-width: 100%;
 }
 
@@ -230,10 +230,10 @@ main {
     justify-content: space-between;
     background-color: #a8b0b2;
     color: white;
-    border-radius: calc(2px + (8 - 2) * (100vw - 800px) / (3200 - 800));
-    font-size: calc(20px + (60 - 20) * (100vw - 800px) / (3200 - 800));
-    margin-top: calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800));
-    padding: calc(8px + (16 - 8) * (100vw - 800px) / (3200 - 800));
+    border-radius: calc(0.125rem + (0.5 - 0.125) * (100vw - 50rem) / (200 - 50));
+    font-size: calc(1.25rem + (3.75 - 1.25) * (100vw - 50rem) / (200 - 50));
+    margin-top: calc(0.5rem + (1 - 0.5) * (100vw - 50rem) / (200 - 50));
+    padding: calc(0.5rem + (1 - 0.5) * (100vw - 50rem) / (200 - 50));
 }
 
 .param div:first-child {
@@ -242,17 +242,17 @@ main {
 
 @media screen and (max-width: 799px) {
     h1, h2 {
-        font-size: calc(30px + (64 - 30) * (100vw - 320px) / (800 - 320));
+        font-size: calc(2rem + (4 - 2) * (100vw - 20rem) / (50 - 20));
     }
 
     .refresh-btn {
-        padding: 0 20px;
+        padding: 0 1.25rem;
     }
 
     .refresh-btn .icon {
         display: block;
-        width: calc(40px + (64 - 40) * (100vw - 320px) / (800 - 320));
-        height: calc(40px + (64 - 40) * (100vw - 320px) / (800 - 320));
+        width: calc(2.5rem + (4 - 2.5) * (100vw - 20rem) / (50 - 20));
+        height: calc(2.5rem + (4 - 2.5) * (100vw - 20rem) / (50 - 20));
     }
 
     .refresh-btn .refresh-btn-text {
@@ -260,39 +260,39 @@ main {
     }
 
     .temperature-value {
-        font-size: calc(22px + (48 - 22) * (100vw - 320px) / (800 - 320));
+        font-size: calc(1.25rem + (3 - 1.25) * (100vw - 20rem) / (50 - 20));
     }
 
     .city-name {
-        font-size: calc(20px + (40 - 20) * (100vw - 320px) / (800 - 320));
+        font-size: calc(1.25rem + (2.5 - 1.25) * (100vw - 20rem) / (50 - 20));
     }
 
     .local-weather-item .city-name {
-        font-size: calc(40px + (60 - 40) * (100vw - 320px) / (800 - 320));
+        font-size: calc(2.5rem + (3.75 - 2.5) * (100vw - 20rem) / (50 - 20));
     }
 
     .weather-icon img {
-        height: calc(30px + (50 - 30) * (100vw - 320px) / (800 - 320));
-        width: calc(30px + (50 - 30) * (100vw - 320px) / (800 - 320));
+        height: calc(2rem + (3 - 2) * (100vw - 20rem) / (50 - 20));
+        width: calc(2rem + (3 - 2) * (100vw - 20rem) / (50 - 20));
     }
 
     .local-weather-item .weather-icon {
-        width: calc(80px + (144 - 80) * (100vw - 320px) / (800 - 320));
-        height: calc(80px + (144 - 80) * (100vw - 320px) / (800 - 320));
+        width: calc(5rem + (9 - 5) * (100vw - 20rem) / (50 - 20));
+        height: calc(5rem + (9 - 5) * (100vw - 20rem) / (50 - 20));
     }
 
     .local-weather-item .weather-icon img {
-        width: calc(80px + (144 - 80) * (100vw - 320px) / (800 - 320));
-        height: calc(80px + (144 - 80) * (100vw - 320px) / (800 - 320));
+        width: calc(5rem + (9 - 5) * (100vw - 20rem) / (50 - 20));
+        height: calc(5rem + (9 - 5) * (100vw - 20rem) / (50 - 20));
     }
 
     .circle-btn {
-        height: calc(30px + (50 - 30) * (100vw - 320px) / (800 - 320));
-        width: calc(30px + (50 - 30) * (100vw - 320px) / (800 - 320));
+        height: calc(2rem + (3 - 2) * (100vw - 20rem) / (50 - 20));
+        width: calc(2rem + (3 - 2) * (100vw - 20rem) / (50 - 20));
     }
 
     .local-weather-item .temperature-value {
-        font-size: calc(72px + (120 - 72) * (100vw - 320px) / (800 - 320));
+        font-size: calc(4.5rem + (7.5 - 4.5) * (100vw - 20rem) / (50 - 20));
     }
 
     .fav-search {
@@ -300,15 +300,15 @@ main {
     }
 
     .fav-search input[type="search"] {
-        margin-top: 16px;
-        height: calc(30px + (50 - 30) * (100vw - 320px) / (800 - 320));
+        margin-top: 1rem;
+        height: calc(2 + (3 - 2) * (100vw - 20rem) / (50 - 20));
     }
 
     .fav-search .circle-btn {
-        margin-top: 16px;
+        margin-top: 1rem;
     }
 
     .param {
-        font-size: calc(16px + (24 - 16) * (100vw - 320px) / (800 - 320));
+        font-size: calc(1rem + (1.5 - 1) * (100vw - 20rem) / (50 - 20));
     }
 }
