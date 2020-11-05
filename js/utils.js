@@ -14,6 +14,8 @@ const addToFavorites = async evt => {
     evt.preventDefault()
     const searchInput = document.getElementById('fav-city-search')
     const cityName = searchInput.value.trim()
+    if (cityName === '')
+        return
     searchInput.value = ''
     const favCityList = JSON.parse(localStorage.getItem('favCityList'))
     if (Object.values(favCityList).includes(cityName)){
