@@ -96,8 +96,8 @@ main {
 
 .fav-search .circle-btn {
     margin: 0;
-    height: calc(3rem + (9 - 3) * (100vw - 50rem) / (200 - 50));
-    width: calc(3rem + (9 - 3) * (100vw - 50rem) / (200 - 50));
+    height: calc(3rem + (11 - 3) * (100vw - 50rem) / (200 - 50));
+    width: calc(3rem + (11 - 3) * (100vw - 50rem) / (200 - 50));
 }
 
 .weather-item-list {
