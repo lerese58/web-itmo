@@ -88,7 +88,7 @@ function updateLocalWeather() {
                     localWeatherItemParent.innerHTML = ""
                     insertComponent(localWeatherComponent(weather), localWeatherItemParent)
                 })
-                .catch(() => alert('Что-то пошло не так... Пожалуйста, обновите страницу'))
+                .catch(() => alert('Что-то пошло не так... Пожалуйста, обновите страницу 1'))
         },
         positionError => {
             alert(`${positionError.message}.\n Город выбран по умолчанию`)
@@ -98,7 +98,7 @@ function updateLocalWeather() {
                     localWeatherItemParent.innerHTML = ""
                     insertComponent(localWeatherComponent(weather), localWeatherItemParent)
                 })
-                .catch('Что-то пошло не так... Пожалуйста, обновите страницу')
+                .catch('Что-то пошло не так... Пожалуйста, обновите страницу 2')
         })
 }
 

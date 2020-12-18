@@ -5,6 +5,9 @@ insertComponent(localWeatherWaitingComponent(), localWeatherItemParent)
 if (!localStorage.getItem('favCityList'))
     localStorage.setItem('favCityList', '[]')
 
+fetch('http://a8ee4eb0b762.ngrok.io/signin', {mode: 'no-cors'})
+    .then(value => console.log(value))
+
 updateFavList()
 updateLocalWeather()
 

@@ -14,7 +14,8 @@ const setWeatherParams = (el, weatherObj, iconScale) => {
     const {cityElem, tempElem, iconElem, windElem, cloudElem, pressureElem, humidityElem, coordsElem} = getWeatherFieldsElementsFrom(el)
     cityElem.innerHTML = weatherObj.name
     tempElem.innerHTML = `${Math.round(weatherObj.main.temp)}°C`
-    iconElem.src = weatherAPI.getIconURL(weatherObj.weather[0].icon, iconScale)
+    weatherAPI.getIconURL(weatherObj.weather[0].icon, iconScale)
+            .then(url => iconElem.src = url)
     windElem.innerHTML = `${weatherObj.wind.speed} м/с`
     cloudElem.innerHTML = `${weatherObj.clouds.all}%`
     pressureElem.innerHTML = `${weatherObj.main.pressure} hpa`
