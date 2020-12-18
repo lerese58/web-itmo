@@ -5,9 +5,9 @@ const removeFromFavorites = evt => {
     const currentCityElem = evt.currentTarget.parentElement.parentElement
     const currentCityName = currentCityElem.querySelector(`.city-name`).textContent
 
-    const favCityList = JSON.parse(localStorage.getItem('favCityList'))
-    localStorage.setItem('favCityList', JSON.stringify(favCityList.filter(cityName => cityName !== currentCityName)))
-
+    const favCityList = favoritesAPI.getList()
+    // localStorage.setItem('favCityList', JSON.stringify(favCityList.filter(cityName => cityName !== currentCityName)))
+    favoritesAPI.deleteCity(currentCityName)
     currentCityElem.remove()
 }
 const addToFavorites = async evt => {
@@ -17,14 +17,16 @@ const addToFavorites = async evt => {
     if (cityName === '')
         return
     searchInput.value = ''
-    const favCityList = JSON.parse(localStorage.getItem('favCityList'))
+    // const favCityList = JSON.parse(localStorage.getItem('favCityList'))
+    const favCityList = favoritesAPI.getList()
+
     if (Object.values(favCityList).includes(cityName)){
         alert(`${cityName} уже добавлен`)
         return;
     }
 
     const newUncheckedCityNode = undefinedCityComponent(cityName)
-    const  insertedUncheckedElement = insertComponent(newUncheckedCityNode, weatherItemParent)
+    const insertedUncheckedElement = insertComponent(newUncheckedCityNode, weatherItemParent)
 
     const response = await weatherAPI.getByCity(cityName)
     if (response.cod === 200) {
@@ -36,8 +38,8 @@ const addToFavorites = async evt => {
             alert(`${response.name} уже добавлен`)
             removeElement(document.getElementById(`waiting-${encodeURI(response.name)}`))
         } else {
-            localStorage.setItem('favCityList', JSON.stringify([response.name, ...favCityList]))
-
+            // localStorage.setItem('favCityList', JSON.stringify([response.name, ...favCityList]))
+            favoritesAPI.addCity(response.name)
             const newWeatherNode = weatherComponent(response)
             const waitingElem = document.getElementById(`waiting-${encodeURI(response.name)}`)
             replaceComponent(newWeatherNode, weatherItemParent, waitingElem)
@@ -55,11 +57,12 @@ const addCityElement = (cityToAdd) => {
         .catch(() => alert('Что-то пошло не так... Пожалуйста, обновите страницу'))
 }
 
-const getAddedCities = () => {
+const getAddedCities = async () => {
     const favCitiesObj = JSON.parse(localStorage.getItem('favCityList'))
+    // const favCitiesObj = await favoritesAPI.getList()
     let citiesToAdd = []
     if (weatherItemParent.children.length !== favCitiesObj.length) {
-        Object.values(favCitiesObj).forEach(cityName => {
+        favCitiesObj.forEach(cityName => {
             if (!weatherItemParent.querySelector(`[key="${encodeURI(cityName)}"]`))
                 citiesToAdd.push(cityName)
         })
@@ -67,8 +70,9 @@ const getAddedCities = () => {
     return citiesToAdd
 }
 
-const getDeletedCityElements = () => {
+const getDeletedCityElements = async () => {
     const favCityList = JSON.parse(localStorage.getItem('favCityList'))
+    // const favCityList = await favoritesAPI.getList()
     let citiesElemToRemove = []
     if (favCityList.length !== weatherItemParent.children)
         for (const cityElem of weatherItemParent.children) {
@@ -103,10 +107,10 @@ function updateLocalWeather() {
 }
 
 function updateFavList() {
-    const citiesToAdd = getAddedCities()
-    const citiesElemToRemove = getDeletedCityElements()
-    citiesElemToRemove.forEach(cityElemToRemove => removeElement(cityElemToRemove))
-    citiesToAdd.forEach(cityToAdd => addCityElement(cityToAdd))
+    // const citiesToAdd = getAddedCities()
+    // const citiesElemToRemove = getDeletedCityElements()
+    // citiesElemToRemove.forEach(cityElemToRemove => removeElement(cityElemToRemove))
+    // citiesToAdd.forEach(cityToAdd => addCityElement(cityToAdd))
 }
 
 function insertComponent(componentNode, parentElement) {
