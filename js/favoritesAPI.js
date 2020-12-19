@@ -1,28 +1,35 @@
 class FavoritesAPI {
-
+    /**
+     * @returns {Promise<Array>}
+     */
     async getList() {
         const response = await fetch(`http://127.0.0.1:8088/favorites`, {
             method: 'GET',
-            mode: "no-cors",
         })
         return await response.json()
     }
 
-    addCity(cityName) {
-        const city = decodeURI(cityName)
-        fetch(`http://127.0.0.1:8088/favorites`, {
+    /**
+     * @param{string} cityName
+     * @returns {Promise<Response>}
+     */
+    async addCity(cityName) {
+        return await fetch(`http://127.0.0.1:8088/favorites`, {
             method: 'POST',
-            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({cityToAdd: cityName})
         })
-            .then(response => console.log(response))
     }
 
-    deleteCity(cityName) {
-        fetch(`http://127.0.0.1:8088/favorites`, {
+    /**
+     * @param cityName
+     * @returns {Promise<Response>}
+     */
+    async deleteCity(cityName) {
+        return await fetch(`http://127.0.0.1:8088/favorites`, {
             method: 'DELETE',
-            mode: "no-cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({cityToDelete: cityName})
         })
-            .then(response => console.log(response))
-
     }
 }

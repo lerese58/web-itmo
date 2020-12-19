@@ -3,12 +3,6 @@ const favoritesAPI = new FavoritesAPI()
 
 insertComponent(localWeatherWaitingComponent(), localWeatherItemParent)
 
-if (!localStorage.getItem('favCityList'))
-    localStorage.setItem('favCityList', '[]')
-
-fetch('http://127.0.0.1:8088/signin', { mode: 'no-cors' })
-    .then(value => console.log(value))
-
 updateFavList()
 updateLocalWeather()
 
