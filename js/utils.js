@@ -119,7 +119,7 @@ function updateLocalWeather() {
         },
         positionError => {
             alert(`${positionError.message}.\n Город выбран по умолчанию`)
-            const defaultCityName = 'Москва'
+            const defaultCityName = 'Уфа'
             weatherAPI.getByCity(defaultCityName)
                 .then(weather => {
                     localWeatherItemParent.innerHTML = ""

@@ -6,7 +6,7 @@ class WeatherAPI {
      */
     async getByPosition(position) {
         const [lat, lon] = [position.coords.latitude, position.coords.longitude]
-        let response = await fetch(`http://38147d01e776.ngrok.io/weather/coordinates?lat=${lat}&lon=${lon}`)
+        let response = await fetch(`http://127.0.0.1:8088/weather/coordinates?lat=${lat}&lon=${lon}`)
         return await response.json()
     }
 
@@ -15,7 +15,7 @@ class WeatherAPI {
      * @returns {Promise<Object>}
      */
     async getByCity(cityName) {
-        const response = await fetch(`http://38147d01e776.ngrok.io/weather/city?q=${cityName}`)
+        const response = await fetch(`http://127.0.0.1:8088/weather/city?q=${cityName}`)
         return await response.json()
     }
 
@@ -25,7 +25,7 @@ class WeatherAPI {
      * @returns {Promise<string>}
      */
     async getIconURL(iconCode, scale) {
-        const response = await fetch(`http://38147d01e776.ngrok.io/weather/icon?scale=${scale}&iconCode=${iconCode}`);
+        const response = await fetch(`http://127.0.0.1:8088/weather/icon?scale=${scale}&iconCode=${iconCode}`);
         return await response.text();
     }
 }
