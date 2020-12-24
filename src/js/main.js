@@ -1,9 +1,16 @@
-const weatherAPI = new WeatherAPI()
-const favoritesAPI = new FavoritesAPI()
+import {localWeatherWaitingComponent} from "/src/js/components/components";
+import {
+    addToFavorites,
+    insertComponent,
+    localWeatherItemParent,
+    updateFavList,
+    updateLocalWeather
+} from "/src/js/utils/utils";
+
 
 insertComponent(localWeatherWaitingComponent(), localWeatherItemParent)
 
-updateFavList()
+updateFavList().then(r => {})
 updateLocalWeather()
 
 const refreshBtn = document.querySelector('.refresh-btn')

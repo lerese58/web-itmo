@@ -2,6 +2,9 @@
  * @param{Element} weatherItemElement
  * @returns {{cityElem: Element, pressureElem: Element, iconElem: Element, humidityElem: Element, windElem: Element, cloudElem: Element, coordsElem: Element, tempElem: Element}}
  */
+import weatherAPI from "../APIs/weather/weatherAPI";
+import {removeFromFavorites} from "../utils/utils";
+
 const getWeatherFieldsElementsFrom = weatherItemElement => {
     return {
         cityElem: weatherItemElement.querySelector('.city-name'),
@@ -38,7 +41,7 @@ const setWeatherParams = (el, weatherObj, iconScale) => {
 /**
  * @returns {DocumentFragment}
  */
-function localWeatherWaitingComponent() {
+export function localWeatherWaitingComponent() {
     const localWaitingTemplate = document.querySelector('template#local-waiting-item')
     const importedLocalWaitingNode = document.importNode(localWaitingTemplate.content, true);
     importedLocalWaitingNode.firstElementChild.setAttribute('id', `local-waiting-city`)
@@ -50,7 +53,7 @@ function localWeatherWaitingComponent() {
  * @param{Object} weather
  * @returns {DocumentFragment}
  */
-function localWeatherComponent(weather) {
+export function localWeatherComponent(weather) {
     const localTemplate = document.querySelector('template#local-weather-item')
     const importedLocalNode = document.importNode(localTemplate.content, true)
     setWeatherParams(importedLocalNode, weather, 4)
@@ -62,7 +65,7 @@ function localWeatherComponent(weather) {
  * @param{string} cityName
  * @returns {DocumentFragment}
  */
-function undefinedCityComponent(cityName) {
+export function undefinedCityComponent(cityName) {
     const undefinedCityTemplate = document.querySelector('template#undefined-city-item')
     const importedUndefinedCityNode = document.importNode(undefinedCityTemplate.content, true)
     importedUndefinedCityNode.querySelector('.city-name').innerText = cityName
@@ -75,7 +78,7 @@ function undefinedCityComponent(cityName) {
  * @param{string} cityName
  * @returns {DocumentFragment}
  */
-function weatherWaitingComponent(cityName) {
+export function weatherWaitingComponent(cityName) {
     const waitingTemplate = document.querySelector('template#waiting-item')
     const importedWaitingNode = document.importNode(waitingTemplate.content, true)
     importedWaitingNode.querySelector('.city-name').innerText = cityName
@@ -88,7 +91,7 @@ function weatherWaitingComponent(cityName) {
  * @param{Object} weather
  * @returns {DocumentFragment}
  */
-function weatherComponent(weather) {
+export function weatherComponent(weather) {
     const template = document.querySelector('template#weather-item')
     const importedNode = document.importNode(template.content, true)
     setWeatherParams(importedNode, weather, 2)

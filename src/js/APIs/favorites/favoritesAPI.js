@@ -3,7 +3,7 @@ class FavoritesAPI {
      * @returns {Promise<Array>}
      */
     async getList() {
-        const response = await fetch(`http://127.0.0.1:8088/favorites`, {
+        const response = await fetch(`http://localhost:8088/favorites`, {
             method: 'GET',
         })
         return await response.json()
@@ -33,3 +33,5 @@ class FavoritesAPI {
         })
     }
 }
+
+export default new FavoritesAPI()

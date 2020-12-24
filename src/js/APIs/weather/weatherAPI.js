@@ -29,3 +29,4 @@ class WeatherAPI {
         return await response.text();
     }
 }
+export default new WeatherAPI()
