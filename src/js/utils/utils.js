@@ -1,88 +1,21 @@
-export const localWeatherItemParent = document.querySelector('.local-weather-item')
-export const weatherItemParent = document.querySelector('.weather-item-list');
+// import * as DomAPI from '../APIs/DOM/DomAPI'
+// import * as favoritesAPI from '../APIs/favorites/favoritesAPI'
+// import * as weatherAPI from '../APIs/weather/weatherAPI';
 
-/**
- * City close button handler
- * @param evt
- * @returns {void}
- */
-import favoritesAPI from "../APIs/favorites/favoritesAPI";
-import {
-    localWeatherComponent,
-    localWeatherWaitingComponent,
-    undefinedCityComponent,
-    weatherComponent,
-    weatherWaitingComponent
-} from "../components/components";
-import weatherAPI from "../APIs/weather/weatherAPI";
+// import { localWeatherComponent, weatherWaitingComponent, weatherComponent, localWeatherWaitingComponent } from '../components/components'
 
-
-export const removeFromFavorites = async evt => {
-    const currentCityElem = evt.currentTarget.parentElement.parentElement
-    const currentCityName = currentCityElem.querySelector(`.city-name`).textContent
-    const deleteFromDbResponse = await favoritesAPI.deleteCity(currentCityName)
-    if (deleteFromDbResponse.status === 200)
-        currentCityElem.remove()
-}
-
-/**
- * Favorites form submit handler
- * @param evt
- * @returns {void}
- */
-export const addToFavorites = async evt => {
-    evt.preventDefault()
-    const searchInputElement = document.getElementById('fav-city-search')
-    const cityInputValue = searchInputElement.value.trim()
-    if (cityInputValue === '') {
-        window.alert('Введите название города')
-        return;
-    }
-    searchInputElement.value = ''
-    const favoritesListFromDB = await favoritesAPI.getList()
-
-    if (favoritesListFromDB.includes(cityInputValue)){
-        window.alert(`${cityInputValue} уже добавлен`)
-        return;
-    }
-
-    const newUncheckedCityNode = undefinedCityComponent(cityInputValue)
-    const insertedUncheckedElement = insertComponent(newUncheckedCityNode, weatherItemParent)
-
-    const weatherForNewCityResponse = await weatherAPI.getByCity(cityInputValue)
-    if (weatherForNewCityResponse.cod === 200) {
-        const newCheckedCityNode = weatherWaitingComponent(weatherForNewCityResponse.name)
-        const uncheckedCityElem = document.getElementById(`undefined-city-${encodeURI(cityInputValue)}`)
-        replaceComponent(newCheckedCityNode, weatherItemParent, uncheckedCityElem)
-
-        // cityInputValue is not the same with weatherForNewCityResponse.name
-        // check for duplicate again
-        if (favoritesListFromDB.includes(weatherForNewCityResponse.name)) {
-            window.alert(`${weatherForNewCityResponse.name} уже добавлен`)
-            removeElement(document.getElementById(`waiting-${encodeURI(weatherForNewCityResponse.name)}`))
-        } else {
-            const addToDbResponse = await favoritesAPI.addCity(weatherForNewCityResponse.name)
-            if (addToDbResponse.status === 200) {
-                const newWeatherNode = weatherComponent(weatherForNewCityResponse)
-                const waitingElem = document.getElementById(`waiting-${encodeURI(weatherForNewCityResponse.name)}`)
-                replaceComponent(newWeatherNode, weatherItemParent, waitingElem)
-            } else {
-                window.alert(addToDbResponse.error)
-            }
-        }
-    } else if (weatherForNewCityResponse.cod === '404') {
-        window.alert(`${cityInputValue} не найден`)
-        removeElement(insertedUncheckedElement)
-    }
-}
+const DomAPI = require('../APIs/DOM/DomAPI')
+const favoritesAPI = require('../APIs/favorites/favoritesAPI')
+const weatherAPI = require('../APIs/weather/weatherAPI')
+const { localWeatherComponent, weatherWaitingComponent, weatherComponent, localWeatherWaitingComponent } = require('../components/components')
 
 /**
  * @param{string} cityToAdd
  */
 const addCityElement = (cityToAdd) => {
-    const insertedWaitingElement = insertComponent(weatherWaitingComponent(cityToAdd), weatherItemParent)
+    const insertedWaitingElement = DomAPI.insertComponent(weatherWaitingComponent(cityToAdd), DomAPI.weatherItemParent())
     weatherAPI.getByCity(cityToAdd)
-        .then(weather => replaceComponent(weatherComponent(weather), weatherItemParent, insertedWaitingElement))
+        .then(weather => DomAPI.replaceComponent(weatherComponent(weather), DomAPI.weatherItemParent(), insertedWaitingElement))
         .catch(() => window.alert('Что-то пошло не так... Пожалуйста, обновите страницу'))
 }
 
@@ -94,9 +27,9 @@ const addCityElement = (cityToAdd) => {
 const getAddedCities = async () => {
     const favoritesListFromDB = await favoritesAPI.getList()
     let citiesToAdd = []
-    if (weatherItemParent.children.length !== favoritesListFromDB.length) {
+    if (DomAPI.weatherItemParent().children.length !== favoritesListFromDB.length) {
         favoritesListFromDB.forEach(cityName => {
-            if (!weatherItemParent.querySelector(`[key="${encodeURI(cityName)}"]`))
+            if (!DomAPI.weatherItemParent().querySelector(`[key="${encodeURI(cityName)}"]`))
                 citiesToAdd.push(cityName)
         })
     }
@@ -111,8 +44,8 @@ const getAddedCities = async () => {
 const getDeletedCityElements = async () => {
     const favoritesListFromDB = await favoritesAPI.getList()
     const citiesElemToRemove = []
-    if (favoritesListFromDB.length !== weatherItemParent.children.length)
-        for (const cityElem of weatherItemParent.children) {
+    if (favoritesListFromDB.length !== DomAPI.weatherItemParent().children.length)
+        for (const cityElem of DomAPI.weatherItemParent().children) {
             const currentCityName = cityElem.querySelector('.city-name').innerText
             if (!(favoritesListFromDB.includes(currentCityName)))
                 citiesElemToRemove.push(cityElem)
@@ -120,59 +53,48 @@ const getDeletedCityElements = async () => {
     return citiesElemToRemove
 }
 
-export function updateLocalWeather() {
-    localWeatherItemParent.innerHTML = ""
-    insertComponent(localWeatherWaitingComponent(), localWeatherItemParent)
-    navigator.geolocation.getCurrentPosition(async position => {
+const updateLocalWeather = () => {
+    DomAPI.localWeatherItemParent().innerHTML = ""
+    DomAPI.insertComponent(localWeatherWaitingComponent(), DomAPI.localWeatherItemParent())
+
+    navigator.geolocation.getCurrentPosition(position => {
             weatherAPI.getByPosition(position)
                 .then(weather => {
-                    localWeatherItemParent.innerHTML = ""
-                    insertComponent(localWeatherComponent(weather), localWeatherItemParent)
+                    const p = DomAPI.localWeatherItemParent()
+                    const c = localWeatherComponent(weather)
+                    const i = DomAPI.insertComponent
+                    i(c, p)
+                    DomAPI.insertComponent(localWeatherComponent(weather), DomAPI.localWeatherItemParent())
                 })
-                .catch(() => window.alert('Что-то пошло не так... Пожалуйста, обновите страницу 1'))
+                .catch(() => {
+                    console.log(position.coords)
+                    window.alert('Что-то пошло не так... Пожалуйста, обновите страницу 1');
+                })
         },
         positionError => {
             window.alert(`${positionError.message}.\n Город выбран по умолчанию`)
             const defaultCityName = 'Уфа'
             weatherAPI.getByCity(defaultCityName)
                 .then(weather => {
-                    localWeatherItemParent.innerHTML = ""
-                    insertComponent(localWeatherComponent(weather), localWeatherItemParent)
+                    DomAPI.localWeatherItemParent().innerHTML = ""
+                    DomAPI.insertComponent(localWeatherComponent(weather), DomAPI.localWeatherItemParent())
                 })
-                .catch('Что-то пошло не так... Пожалуйста, обновите страницу 2')
+                .catch(() => {
+                    console.log(defaultCityName)
+                    window.alert('Что-то пошло не так... Пожалуйста, обновите страницу 2');
+                })
         })
 }
 
-export async function updateFavList() {
-    const citiesToAdd = await getAddedCities()
-    const citiesElemToRemove = await getDeletedCityElements()
-    citiesElemToRemove.forEach(cityElemToRemove => removeElement(cityElemToRemove))
-    citiesToAdd.forEach(cityToAdd => addCityElement(cityToAdd))
+const updateFavList = () => {
+    getAddedCities()
+        .then(cityToAddList => cityToAddList
+            .forEach(cityName => addCityElement(cityName)))
+
+    getDeletedCityElements()
+        .then(elemToRemoveList => elemToRemoveList
+            .forEach(elem => DomAPI.removeElement(elem)))
 }
 
-/**
- * @param{DocumentFragment} componentNode
- * @param{Element} parentElement
- * @returns {Element}
- */
-export function insertComponent(componentNode, parentElement) {
-    parentElement.append(componentNode)
-    return parentElement.lastElementChild
-}
-
-/**
- * @param{Element} elementToRemove
- */
-function removeElement(elementToRemove) {
-    elementToRemove.remove()
-}
-
-/**
- * @param{DocumentFragment} componentNode
- * @param{Element} parentElement
- * @param{Element} oldChildElement
- * @returns {Element}
- */
-function replaceComponent(componentNode, parentElement, oldChildElement) {
-    return parentElement.replaceChild(componentNode, oldChildElement)
-}
+// export {updateFavList, updateLocalWeather};
+module.exports = { updateFavList, updateLocalWeather }

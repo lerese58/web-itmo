@@ -1,10 +1,13 @@
+// import * as weatherAPI from "../APIs/weather/weatherAPI";
+// import {removeFromFavorites} from "../handlers/handlers";
+
+const { removeFromFavorites } = require('../handlers/handlers');
+const weatherAPI = require('../APIs/weather/weatherAPI');
+
 /**
  * @param{Element} weatherItemElement
  * @returns {{cityElem: Element, pressureElem: Element, iconElem: Element, humidityElem: Element, windElem: Element, cloudElem: Element, coordsElem: Element, tempElem: Element}}
  */
-import weatherAPI from "../APIs/weather/weatherAPI";
-import {removeFromFavorites} from "../utils/utils";
-
 const getWeatherFieldsElementsFrom = weatherItemElement => {
     return {
         cityElem: weatherItemElement.querySelector('.city-name'),
@@ -21,6 +24,15 @@ const getWeatherFieldsElementsFrom = weatherItemElement => {
 /**
  * @param{Element} el
  * @param{Object} weatherObj
+ * @param{number} weatherObj.coord.lon
+ * @param{number} weatherObj.coord.lat
+ * @param{string} weatherObj.weather.icon
+ * @param{number} weatherObj.main.temp
+ * @param{number} weatherObj.main.pressure
+ * @param{number} weatherObj.main.humidity
+ * @param{number} weatherObj.wind.speed
+ * @param{number} weatherObj.clouds.all
+ * @param{string} weatherObj.name
  * @param{number} iconScale
  * @returns {Element} fulfilled el
  */
@@ -41,7 +53,7 @@ const setWeatherParams = (el, weatherObj, iconScale) => {
 /**
  * @returns {DocumentFragment}
  */
-export function localWeatherWaitingComponent() {
+const localWeatherWaitingComponent = () => {
     const localWaitingTemplate = document.querySelector('template#local-waiting-item')
     const importedLocalWaitingNode = document.importNode(localWaitingTemplate.content, true);
     importedLocalWaitingNode.firstElementChild.setAttribute('id', `local-waiting-city`)
@@ -50,14 +62,23 @@ export function localWeatherWaitingComponent() {
 
 /**
  *
- * @param{Object} weather
+ * @param{Object} weatherObj
+ * @param{number} weatherObj.coord.lon
+ * @param{number} weatherObj.coord.lat
+ * @param{string} weatherObj.weather.icon
+ * @param{number} weatherObj.main.temp
+ * @param{number} weatherObj.main.pressure
+ * @param{number} weatherObj.main.humidity
+ * @param{number} weatherObj.wind.speed
+ * @param{number} weatherObj.clouds.all
+ * @param{string} weatherObj.name
  * @returns {DocumentFragment}
  */
-export function localWeatherComponent(weather) {
+const localWeatherComponent = (weatherObj) => {
     const localTemplate = document.querySelector('template#local-weather-item')
     const importedLocalNode = document.importNode(localTemplate.content, true)
-    setWeatherParams(importedLocalNode, weather, 4)
-    importedLocalNode.firstElementChild.setAttribute('id', `local-weather-${encodeURI(weather.name)}`)
+    setWeatherParams(importedLocalNode, weatherObj, 4)
+    importedLocalNode.firstElementChild.setAttribute('id', `local-weather-${encodeURI(weatherObj.name)}`)
     return importedLocalNode
 }
 
@@ -65,7 +86,7 @@ export function localWeatherComponent(weather) {
  * @param{string} cityName
  * @returns {DocumentFragment}
  */
-export function undefinedCityComponent(cityName) {
+const undefinedCityComponent = (cityName) => {
     const undefinedCityTemplate = document.querySelector('template#undefined-city-item')
     const importedUndefinedCityNode = document.importNode(undefinedCityTemplate.content, true)
     importedUndefinedCityNode.querySelector('.city-name').innerText = cityName
@@ -78,7 +99,7 @@ export function undefinedCityComponent(cityName) {
  * @param{string} cityName
  * @returns {DocumentFragment}
  */
-export function weatherWaitingComponent(cityName) {
+const weatherWaitingComponent = (cityName) => {
     const waitingTemplate = document.querySelector('template#waiting-item')
     const importedWaitingNode = document.importNode(waitingTemplate.content, true)
     importedWaitingNode.querySelector('.city-name').innerText = cityName
@@ -88,15 +109,27 @@ export function weatherWaitingComponent(cityName) {
 }
 
 /**
- * @param{Object} weather
+ * @param{Object} weatherObj
+ * @param{number} weatherObj.coord.lon
+ * @param{number} weatherObj.coord.lat
+ * @param{string} weatherObj.weather.icon
+ * @param{number} weatherObj.main.temp
+ * @param{number} weatherObj.main.pressure
+ * @param{number} weatherObj.main.humidity
+ * @param{number} weatherObj.wind.speed
+ * @param{number} weatherObj.clouds.all
+ * @param{string} weatherObj.name
  * @returns {DocumentFragment}
  */
-export function weatherComponent(weather) {
+const weatherComponent = (weatherObj) => {
     const template = document.querySelector('template#weather-item')
     const importedNode = document.importNode(template.content, true)
-    setWeatherParams(importedNode, weather, 2)
+    setWeatherParams(importedNode, weatherObj, 2)
     importedNode.querySelector('.remove-city-btn').addEventListener('click', removeFromFavorites)
-    importedNode.firstElementChild.setAttribute('key', encodeURI(weather.name))
-    importedNode.firstElementChild.setAttribute('id', `weather-item-${encodeURI(weather.name)}`)
+    importedNode.firstElementChild.setAttribute('key', encodeURI(weatherObj.name))
+    importedNode.firstElementChild.setAttribute('id', `weather-item-${encodeURI(weatherObj.name)}`)
     return importedNode
 }
+
+// export { weatherComponent, weatherWaitingComponent, undefinedCityComponent, localWeatherWaitingComponent, localWeatherComponent };
+module.exports = { weatherComponent, weatherWaitingComponent, undefinedCityComponent, localWeatherComponent, localWeatherWaitingComponent }

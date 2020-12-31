@@ -1,26 +1,22 @@
-import {localWeatherWaitingComponent} from "/src/js/components/components";
-import {
-    addToFavorites,
-    insertComponent,
-    localWeatherItemParent,
-    updateFavList,
-    updateLocalWeather
-} from "/src/js/utils/utils";
+// import * as DomAPI from '../APIs/DOM/DomAPI'
+// import {addToFavorites, handleOffline} from "./handlers/handlers";
+// import {updateFavList, updateLocalWeather} from "./utils/utils";
+// import { localWeatherComponent, weatherWaitingComponent, weatherComponent, localWeatherWaitingComponent } from '../components/components'
+
+const DomAPI = require('./APIs/DOM/DomAPI');
+const { localWeatherWaitingComponent } = require('./components/components');
+const { addToFavorites, handleOffline } = require('./handlers/handlers');
+const { updateFavList, updateLocalWeather } = require('./utils/utils');
 
 
-insertComponent(localWeatherWaitingComponent(), localWeatherItemParent)
+DomAPI.insertComponent(localWeatherWaitingComponent(), DomAPI.localWeatherItemParent())
 
-updateFavList().then(r => {})
+updateFavList()
 updateLocalWeather()
 
 const refreshBtn = document.querySelector('.refresh-btn')
 refreshBtn.addEventListener('click', updateLocalWeather)
 const favCityForm = document.querySelector('form.fav-search')
 favCityForm.addEventListener('submit', addToFavorites)
-
-function handleOffline() {
-    if (!navigator.onLine)
-        alert('Connection lost. Please check your connection')
-}
 
 window.addEventListener('offline', handleOffline)
