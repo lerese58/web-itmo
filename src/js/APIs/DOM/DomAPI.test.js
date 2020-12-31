@@ -4,11 +4,11 @@ const chai = require('chai');
 const jsdom = require('jsdom');
 
 const DomAPI = require('./DomAPI')
-const {weatherComponent} = require("../../components/components");
+const { weatherComponent } = require("../../components/components");
 
 const htmlContent = fs.readFileSync(path.resolve(__dirname, '../../../index.html'));
-const weather1 = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../weather/weather_1.json')));
-const weather2 = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../weather/weather_2.json')));
+const weather1 = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../../../test/data/weather_1.json')));
+const weather2 = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../../../test/data/weather_2.json')));
 
 let newTestWeatherElem1, newTestWeatherElem2, parentElem, newElement;
 

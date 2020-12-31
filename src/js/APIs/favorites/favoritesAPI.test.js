@@ -4,7 +4,7 @@ const chai = require('chai');
 
 const favoritesAPI = require('./favoritesAPI')
 
-const favListMock = JSON.parse(fs.readFileSync(path.resolve(__dirname, './favList_1.json')))
+const favListMock = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../../../test/data/favList_1.json')))
 
 describe('Get list of favorites', () => {
     let data
